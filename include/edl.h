@@ -3,7 +3,7 @@
 
 #define EDL_BIND(function_pointer, edl_library, symbol) \
     do { \
-        *((void **) &##symbol) = edl_resolve_symbol(##edl_library, #symbol); \
+        *((void **) &(symbol)) = edl_resolve_symbol((edl_library), (#symbol)); \
     } while (0)
 
 typedef struct edl_library {
