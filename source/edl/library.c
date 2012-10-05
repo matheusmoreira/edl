@@ -15,6 +15,7 @@ edl_library_t * edl_library_new() {
 }
 
 void edl_library_destroy(edl_library_t * library) {
+    if (library == NULL) { return; }
     free(library);
 }
 
