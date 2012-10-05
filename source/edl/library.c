@@ -2,6 +2,7 @@
 
 #include <edl/platform/specifics.h>
 #include <edl/library.h>
+#include <edl/status.h>
 
 struct edl_library {
     const char * name;
@@ -37,8 +38,15 @@ edl_library_t * edl_main_library() {
     return edl_library_open(NULL);
 }
 
-int edl_library_close(edl_library_t * library) {
-    return edl_native_close_library(library->native_handle);
+edl_status_t edl_library_close(edl_library_t * library) {
+    edl_status_t status = EDL_SUCCESS;
+
+    if (library != NULL && library->native_handle != NULL) {
+        status = edl_native_close_library(library->native_handle);
+        library->native_handle = NULL;
+    }
+
+    return status;
 }
 
 void * edl_library_resolve_symbol(edl_library_t * library,
