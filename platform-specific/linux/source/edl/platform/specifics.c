@@ -1,4 +1,5 @@
 #include <edl/platform/specifics.h>
+#include <edl/status.h>
 
 #include <dlfcn.h>
 
@@ -10,8 +11,8 @@ extern void * edl_native_resolve_symbol(void * native_handle, const char * symbo
     return dlsym(native_handle, symbol);
 }
 
-extern int edl_native_close_library(void * native_handle) {
-    return dlclose(native_handle);
+extern edl_status_t edl_native_close_library(void * native_handle) {
+    return dlclose(native_handle) == 0 ? EDL_SUCCESS : EDL_FAILURE;
 }
 
 extern const char * edl_native_last_error() {
