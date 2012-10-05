@@ -1,6 +1,6 @@
 #include <stdlib.h>
 
-#include <edl.h>
+#include <edl/library.h>
 #include <edl/platform/specifics.h>
 
 static void * edl_find_and_open_library(const char * name);
