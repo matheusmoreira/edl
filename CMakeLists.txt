@@ -20,7 +20,7 @@ file(GLOB_RECURSE EDL_SOURCE_FILES ${EDL_SOURCE_DIR}/*.c)
 
 message("Source files: ${EDL_SOURCE_FILES}")
 
-# Detect underlying system
+# Detect underlying system and set variables
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
     set(EDL_PLATFORM linux)
     set(EDL_PLATFORM_SPECIFIC_LIBRARIES dl)
