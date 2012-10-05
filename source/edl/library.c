@@ -1,7 +1,7 @@
 #include <stdlib.h>
 
-#include <edl/library.h>
 #include <edl/platform/specifics.h>
+#include <edl/library.h>
 
 struct edl_library {
     const char * name;
