@@ -5,14 +5,22 @@
 
 static void * edl_find_and_open_library(const char * name);
 
+edl_library_t * edl_library_new() {
+    return malloc(sizeof(edl_library_t));
+}
+
+void edl_library_destroy(edl_library_t * library) {
+    free(library);
+}
+
 edl_library_t * edl_open_library(const char * name) {
     edl_library_t * library = NULL;
     void * handle = edl_find_and_open_library(name);
 
     if (handle == NULL) { return NULL; }
 
-    library = malloc(sizeof *library);
-    if (library == NULL) { /* malloc error */ return NULL; }
+    library = edl_library_new();
+    if (library == NULL) { return NULL; }
 
     library->name = name;
     library->native_handle = handle;

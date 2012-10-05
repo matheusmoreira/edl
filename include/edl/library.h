@@ -6,6 +6,9 @@ typedef struct edl_library {
     void * native_handle;
 } edl_library_t;
 
+extern edl_library_t * edl_library_new();
+extern void edl_library_destroy(edl_library_t * library);
+
 extern edl_library_t * edl_open_library(const char * name);
 extern edl_library_t * edl_main_library();
 extern int edl_close_library(edl_library_t * library);

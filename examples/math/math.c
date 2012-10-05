@@ -28,5 +28,7 @@ int main(int argc, char ** argv) {
         exit(3);
     }
 
+    edl_library_destroy(math_library);
+
     return 0;
 }
