@@ -59,7 +59,7 @@ void * edl_library_resolve_symbol(edl_library_t * library,
     return edl_native_resolve_symbol(library->native_handle, symbol);
 }
 
-const char * edl_last_error() {
+const char * edl_library_last_error() {
     return edl_native_last_error();
 }
 
