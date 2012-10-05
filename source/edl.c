@@ -41,17 +41,3 @@ static void * edl_find_and_open_library(const char * name) {
     /* TODO: Try all possible extensions */
     return edl_native_open_library(name);
 }
-
-/* Include platform-specific implementation file
-
-#if defined(EDL_PLATFORM_LINUX)
-    #include <edl/platform/linux.c>
-#elif defined(EDL_PLATFORM_WINDOWS)
-    #include <edl/platform/windows.c>
-#else
-    #error Unsupported platform
-#endif
-
-*/
-
-#include <edl/platform/specifics.c>
