@@ -1,10 +1,7 @@
 #ifndef EDL_LIBRARY_HEADER
 #define EDL_LIBRARY_HEADER
 
-typedef struct edl_library {
-    const char * name;
-    void * native_handle;
-} edl_library_t;
+typedef struct edl_library edl_library_t;
 
 extern edl_library_t * edl_library_new();
 extern void edl_library_destroy(edl_library_t * library);

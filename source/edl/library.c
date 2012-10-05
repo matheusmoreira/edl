@@ -3,6 +3,11 @@
 #include <edl/library.h>
 #include <edl/platform/specifics.h>
 
+struct edl_library {
+    const char * name;
+    void * native_handle;
+};
+
 static void * edl_find_and_open_library(const char * name);
 
 edl_library_t * edl_library_new() {
