@@ -12,7 +12,11 @@ struct edl_library {
 static void * edl_library_find_and_open(const char * name);
 
 edl_library_t * edl_library_new() {
-    return malloc(sizeof(edl_library_t));
+    edl_library_t * library = malloc(sizeof *library);
+
+    library->name = library->native_handle = NULL;
+
+    return library;
 }
 
 void edl_library_destroy(edl_library_t * library) {
