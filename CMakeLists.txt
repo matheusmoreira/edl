@@ -10,9 +10,15 @@ set(EDL_INCLUDE_DIR ${PROJECT_SOURCE_DIR}/include)
 set(EDL_SOURCE_DIR ${PROJECT_SOURCE_DIR}/source)
 set(EDL_PLATFORM_SPECIFIC_DIR ${PROJECT_SOURCE_DIR}/platform-specific)
 
+message("Include directory: ${EDL_INCLUDE_DIR}")
+message("Source directory: ${EDL_SOURCE_DIR}")
+message("Platform-specific directory: ${EDL_PLATFORM_SPECIFIC_DIR}")
+
 # Make main library files accessible
 include_directories(${EDL_INCLUDE_DIR})
 file(GLOB_RECURSE EDL_SOURCE_FILES ${EDL_SOURCE_DIR}/*.c)
+
+message("Source files: ${EDL_SOURCE_FILES}")
 
 # Detect underlying system
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
@@ -22,7 +28,13 @@ else()
   message("WARNING: platform not supported")
 endif()
 
-message("EDL platform: ${EDL_PLATFORM}")
+message("Platform: ${EDL_PLATFORM}")
+message("Platform-specific libraries: ${EDL_PLATFORM_SPECIFIC_LIBRARIES}")
+
+# Find platform-specific libraries
+foreach(LIBRARY ${EDL_PLATFORM_SPECIFIC_LIBRARIES})
+  find_library(${LIBRARY} REQUIRED)
+endforeach()
 
 # Set up platform-specific directories
 set(EDL_PLATFORM_SPECIFIC_INCLUDE_DIR
@@ -30,10 +42,15 @@ set(EDL_PLATFORM_SPECIFIC_INCLUDE_DIR
 set(EDL_PLATFORM_SPECIFIC_SOURCE_DIR
     ${EDL_PLATFORM_SPECIFIC_DIR}/${EDL_PLATFORM}/source)
 
+message("Platform-specific include directory: ${EDL_PLATFORM_SPECIFIC_INCLUDE_DIR}")
+message("Platform-specific source directory: ${EDL_PLATFORM_SPECIFIC_SOURCE_DIR}")
+
 # Make platform-specific files accessible
 include_directories(${EDL_PLATFORM_SPECIFIC_INCLUDE_DIR})
 file(GLOB_RECURSE EDL_PLATFORM_SPECIFIC_SOURCE_FILES
      ${EDL_PLATFORM_SPECIFIC_SOURCE_DIR}/*.c)
+
+message("Platform-specific source files: ${EDL_PLATFORM_SPECIFIC_SOURCE_FILES}")
 
 # Configure EDL library
 add_library(${EDL_LIBRARY}
