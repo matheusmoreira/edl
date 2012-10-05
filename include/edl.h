@@ -1,11 +1,6 @@
 #ifndef EDL_HEADER
 #define EDL_HEADER
 
-#define EDL_BIND(function_pointer, edl_library, symbol) \
-    do { \
-        *((void **) &(symbol)) = edl_resolve_symbol((edl_library), (#symbol)); \
-    } while (0)
-
 typedef struct edl_library {
     const char * name;
     void * native_handle;

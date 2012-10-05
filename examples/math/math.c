@@ -14,7 +14,7 @@ int main(int argc, char ** argv) {
         exit(1);
     }
 
-    EDL_BIND(pow, math_library, pow);
+    pow = edl_resolve_symbol(math_library, "pow");
     error = edl_last_error();
     if (error != NULL) {
         fprintf(stderr, "%s\n", error);
