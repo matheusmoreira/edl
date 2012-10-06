@@ -4,6 +4,7 @@
 
 #include <edl/function.h>
 #include <edl/library.h>
+#include <edl/object.h>
 #include <edl/status.h>
 
 struct edl_library {
@@ -71,9 +72,14 @@ edl_status_t edl_library_close(edl_library_t * library) {
     return status;
 }
 
-extern void * edl_library_get_object(edl_library_t * library,
-                                      const char * name) {
-    return edl_native_library_get_object(library->native_handle, name);
+extern edl_object_t edl_library_get_object(edl_library_t * library,
+                                            const char * name) {
+    edl_object_t object = NULL;
+
+    object = edl_native_library_get_object(library->native_handle, name);
+    if (object == NULL) { edl_library_set_error(library); }
+
+    return object;
 }
 
 extern edl_function_t edl_library_get_function(edl_library_t * library,

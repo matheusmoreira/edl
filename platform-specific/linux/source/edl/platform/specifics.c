@@ -1,5 +1,7 @@
 #include <edl/platform/specifics.h>
 
+#include <edl/function.h>
+#include <edl/object.h>
 #include <edl/status.h>
 
 #include <dlfcn.h>
@@ -8,9 +10,9 @@ extern void * edl_native_library_open(const char * path) {
     return dlopen(path, RTLD_LAZY);
 }
 
-void * edl_native_library_get_object(void * native_handle,
-                                     const char * name) {
-    return dlsym(native_handle, name);
+edl_object_t edl_native_library_get_object(void * native_handle,
+                                           const char * name) {
+    return (edl_object_t) dlsym(native_handle, name);
 }
 
 edl_function_t edl_native_library_get_function(void * native_handle,
