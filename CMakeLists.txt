@@ -58,7 +58,6 @@ message("Platform-specific source files: ${EDL_PLATFORM_SPECIFIC_SOURCE_FILES}")
 # Configure EDL library
 add_library(${EDL_LIBRARY}
             ${EDL_SOURCE_FILES} ${EDL_PLATFORM_SPECIFIC_SOURCE_FILES})
-set_target_properties(${EDL_LIBRARY} PROPERTIES LINKER_LANGUAGE C)
 
 # Link against platform-specific libraries
 add_dependencies(${EDL_LIBRARY} ${EDL_PLATFORM_SPECIFIC_LIBRARIES})
