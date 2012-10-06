@@ -28,7 +28,7 @@ int main(int argc, char ** argv) {
     }
 
     status = edl_library_open(math_library, path_to_library);
-    if (status != EDL_SUCCESS) {
+    if (edl_status_is_failure(status)) {
         fprintf(stderr,
                 "Could not open math library - %s\n", edl_library_last_error());
         exit(2);
@@ -44,7 +44,7 @@ int main(int argc, char ** argv) {
     printf("%f^%f = %f\n", base, exponent, pow(base, exponent));
 
     status = edl_library_destroy(math_library);
-    if(status != EDL_SUCCESS) {
+    if(edl_status_is_failure(status)) {
         fprintf(stderr,
                 "Could not destroy the math library - %s\n",
                 edl_library_last_error());
