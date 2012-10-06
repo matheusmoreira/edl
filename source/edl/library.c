@@ -15,6 +15,7 @@ struct edl_library {
 /* Helper function prototypes */
 
 static void * edl_library_find_and_open(const char * name);
+static void edl_library_set_error(edl_library_t * library);
 
 /* edl_library interface implementation */
 
@@ -40,7 +41,7 @@ edl_status_t edl_library_open(edl_library_t * library, const char * name) {
 
     handle = edl_library_find_and_open(name);
     if (handle == NULL) {
-        library->error_message = edl_native_library_last_error();
+        edl_library_set_error(library);
         return EDL_FAILURE;
     }
 
@@ -63,7 +64,7 @@ edl_status_t edl_library_close(edl_library_t * library) {
         if (status == EDL_CLOSED_SUCCESSFULLY) {
             library->native_handle = NULL;
         } else {
-            library->error_message = edl_native_library_last_error();
+            edl_library_set_error(library);
         }
     }
 
@@ -89,4 +90,8 @@ const char * edl_library_last_error(edl_library_t * library) {
 static void * edl_library_find_and_open(const char * name) {
     /* TODO: Try all possible extensions */
     return edl_native_library_open(name);
+}
+
+static void edl_library_set_error(edl_library_t * library) {
+    library->error_message = edl_native_library_last_error();
 }
