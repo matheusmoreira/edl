@@ -9,7 +9,11 @@ struct edl_library {
     void * native_handle;
 };
 
+/* Helper function prototypes */
+
 static void * edl_library_find_and_open(const char * name);
+
+/* edl_library interface implementation */
 
 edl_library_t * edl_library_new() {
     edl_library_t * library = malloc(sizeof *library);
