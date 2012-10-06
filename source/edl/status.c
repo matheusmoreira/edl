@@ -6,6 +6,7 @@ int edl_status_is_successful(edl_status_t status) {
     switch (status) {
         case EDL_SUCCESS:
         case EDL_CLOSED_SUCCESSFULLY:
+        case EDL_DESTROYED_SUCCESSFULLY:
             return 1;
         default:
             return 0;
