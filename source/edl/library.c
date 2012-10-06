@@ -49,11 +49,14 @@ edl_status_t edl_library_current(edl_library_t * library) {
 }
 
 edl_status_t edl_library_close(edl_library_t * library) {
-    edl_status_t status = EDL_SUCCESS;
+    edl_status_t status = EDL_CLOSED_SUCCESSFULLY;
 
     if (library != NULL && library->native_handle != NULL) {
         status = edl_native_close_library(library->native_handle);
-        if (status == EDL_SUCCESS) { library->native_handle = NULL; }
+
+        if (status == EDL_CLOSED_SUCCESSFULLY) {
+            library->native_handle = NULL;
+        }
     }
 
     return status;
