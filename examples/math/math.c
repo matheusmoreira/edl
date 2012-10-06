@@ -35,10 +35,10 @@ int main(int argc, char ** argv) {
         exit(2);
     }
 
-    pow = (pow_function_t) edl_library_resolve_symbol(math_library, "pow");
+    pow = (pow_function_t) edl_library_get_function(math_library, "pow");
     if (pow == NULL) {
         fprintf(stderr,
-                "Symbol resolution failed - %s\n",
+                "Could not find function - %s\n",
                 edl_library_last_error(math_library));
         exit(3);
     }
