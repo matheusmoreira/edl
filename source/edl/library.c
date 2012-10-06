@@ -16,7 +16,7 @@ static void * edl_library_find_and_open(const char * name);
 
 /* edl_library interface implementation */
 
-edl_library_t * edl_library_new() {
+edl_library_t * edl_library_create() {
     edl_library_t * library = malloc(sizeof *library);
 
     library->name = library->native_handle = library->error_message = NULL;

@@ -21,7 +21,7 @@ int main(int argc, char ** argv) {
         }
     }
 
-    math_library = edl_library_new();
+    math_library = edl_library_create();
     if (math_library == NULL) {
         fprintf(stderr, "Could not allocate memory for math library\n");
         exit(1);
