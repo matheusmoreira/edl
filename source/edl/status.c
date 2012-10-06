@@ -16,3 +16,16 @@ int edl_status_is_successful(edl_status_t status) {
 int edl_status_is_failure(edl_status_t status) {
     return !edl_status_is_successful(status);
 }
+
+#define NAME(status) case status: return #status; break
+
+const char * edl_status_name(edl_status_t status) {
+    switch (status) {
+        NAME(EDL_SUCCESS);
+        NAME(EDL_FAILURE);
+        NAME(EDL_CLOSED_SUCCESSFULLY);
+        NAME(EDL_DESTROYED_SUCCESSFULLY);
+    }
+}
+
+#undef NAME
