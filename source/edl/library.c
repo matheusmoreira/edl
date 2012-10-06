@@ -78,7 +78,12 @@ extern void * edl_library_get_object(edl_library_t * library,
 
 extern edl_function_t edl_library_get_function(edl_library_t * library,
                                                 const char * name) {
-    return edl_native_library_get_function(library->native_handle, name);
+    edl_function_t function = NULL;
+
+    function = edl_native_library_get_function(library->native_handle, name);
+    if (function == NULL) { edl_library_set_error(library); }
+
+    return function;
 }
 
 const char * edl_library_last_error(edl_library_t * library) {
