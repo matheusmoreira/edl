@@ -21,34 +21,44 @@ int main(int argc, char ** argv) {
         }
     }
 
+    printf("Base: %f" "\n" "Exponent: %f" "\n" "Math library: %s" "\n",
+           base, exponent, path_to_library);
+
+    printf("Creating math library...");
     math_library = edl_library_create();
     if (math_library == NULL) {
-        fprintf(stderr, "Could not allocate memory for math library\n");
+        fprintf(stderr, "\n" "Could not allocate memory for math library" "\n");
         exit(1);
-    }
+    } else { printf(" created" "\n"); }
 
+    printf("Opening \"%s\"... ", path_to_library);
     status = edl_library_open(math_library, path_to_library);
+    printf("%s" "\n", edl_status_name(status));
     if (edl_status_is_failure(status)) {
         fprintf(stderr,
-                "Could not open math library - %s\n",
+                "Could not open math library - %s" "\n",
                 edl_library_last_error(math_library));
         exit(2);
     }
 
+    printf("Acquiring \"pow\" function...");
     pow = (pow_function_t) edl_library_get_function(math_library, "pow");
     if (pow == NULL) {
         fprintf(stderr,
-                "Could not find function - %s\n",
+                "\n" "Could not find function - %s" "\n",
                 edl_library_last_error(math_library));
         exit(3);
-    }
+    } else { printf(" acquired\n"); }
 
-    printf("%f^%f = %f\n", base, exponent, pow(base, exponent));
+    printf("\n\t" "%f ^ %f = %f" "\n\n",
+           base, exponent, pow(base, exponent));
 
+    printf("Destroying math library... ");
     status = edl_library_destroy(math_library);
+    printf("%s" "\n", edl_status_name(status));
     if(edl_status_is_failure(status)) {
         fprintf(stderr,
-                "Could not destroy the math library - %s\n",
+                "Could not destroy the math library - %s" "\n",
                 edl_library_last_error(math_library));
         exit(4);
     }
