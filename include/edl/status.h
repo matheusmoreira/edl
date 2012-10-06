@@ -2,8 +2,9 @@
 #define EDL_STATUS_HEADER
 
 typedef enum edl_status {
-    EDL_SUCCESS = 0,
-    EDL_FAILURE
+    EDL_SUCCESS,
+    EDL_FAILURE,
+    EDL_CLOSED_SUCCESSFULLY
 } edl_status_t;
 
 #endif /* EDL_STATUS_HEADER */
