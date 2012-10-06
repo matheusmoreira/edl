@@ -1,6 +1,7 @@
 #ifndef EDL_LIBRARY_HEADER
 #define EDL_LIBRARY_HEADER
 
+#include <edl/function.h>
 #include <edl/status.h>
 
 typedef struct edl_library edl_library_t;
@@ -13,8 +14,11 @@ extern edl_status_t edl_library_open(edl_library_t * library,
 extern edl_status_t edl_library_close(edl_library_t * library);
 extern edl_status_t edl_library_current(edl_library_t * library);
 
-extern void * edl_library_resolve_symbol(edl_library_t * library,
-                                          const char * symbol);
+extern void * edl_library_get_object(edl_library_t * library,
+                                      const char * name);
+
+extern edl_function_t edl_library_get_function(edl_library_t * library,
+                                                const char * name);
 
 extern const char * edl_library_last_error(edl_library_t * library);
 

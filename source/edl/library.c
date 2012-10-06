@@ -1,6 +1,8 @@
 #include <stdlib.h>
 
 #include <edl/platform/specifics.h>
+
+#include <edl/function.h>
 #include <edl/library.h>
 #include <edl/status.h>
 
@@ -38,7 +40,7 @@ edl_status_t edl_library_open(edl_library_t * library, const char * name) {
 
     handle = edl_library_find_and_open(name);
     if (handle == NULL) {
-        library->error_message = edl_native_last_error();
+        library->error_message = edl_native_library_last_error();
         return EDL_FAILURE;
     }
 
@@ -56,21 +58,26 @@ edl_status_t edl_library_close(edl_library_t * library) {
     edl_status_t status = EDL_CLOSED_SUCCESSFULLY;
 
     if (library != NULL && library->native_handle != NULL) {
-        status = edl_native_close_library(library->native_handle);
+        status = edl_native_library_close(library->native_handle);
 
         if (status == EDL_CLOSED_SUCCESSFULLY) {
             library->native_handle = NULL;
         } else {
-            library->error_message = edl_native_last_error();
+            library->error_message = edl_native_library_last_error();
         }
     }
 
     return status;
 }
 
-void * edl_library_resolve_symbol(edl_library_t * library,
-                                  const char * symbol) {
-    return edl_native_resolve_symbol(library->native_handle, symbol);
+extern void * edl_library_get_object(edl_library_t * library,
+                                      const char * name) {
+    return edl_native_library_get_object(library->native_handle, name);
+}
+
+extern edl_function_t edl_library_get_function(edl_library_t * library,
+                                                const char * name) {
+    return edl_native_library_get_function(library->native_handle, name);
 }
 
 const char * edl_library_last_error(edl_library_t * library) {
@@ -81,5 +88,5 @@ const char * edl_library_last_error(edl_library_t * library) {
 
 static void * edl_library_find_and_open(const char * name) {
     /* TODO: Try all possible extensions */
-    return edl_native_open_library(name);
+    return edl_native_library_open(name);
 }
