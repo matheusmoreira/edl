@@ -7,4 +7,7 @@ typedef enum edl_status {
     EDL_CLOSED_SUCCESSFULLY
 } edl_status_t;
 
+extern int edl_status_is_successful(edl_status_t status);
+extern int edl_status_is_failure(edl_status_t status);
+
 #endif /* EDL_STATUS_HEADER */
