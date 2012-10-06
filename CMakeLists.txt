@@ -20,15 +20,18 @@ file(GLOB_RECURSE EDL_SOURCE_FILES ${EDL_SOURCE_DIR}/*.c)
 
 message("Source files: ${EDL_SOURCE_FILES}")
 
-# Detect underlying system and set variables
+# Detect underlying system
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
     set(EDL_PLATFORM linux)
-    set(EDL_PLATFORM_SPECIFIC_LIBRARIES dl)
 else()
   message("WARNING: platform not supported")
 endif()
 
 message("Platform: ${EDL_PLATFORM}")
+
+# Load platform-specific build instructions
+include(${EDL_PLATFORM_SPECIFIC_DIR}/${EDL_PLATFORM}/build-instructions.cmake)
+
 message("Platform-specific libraries: ${EDL_PLATFORM_SPECIFIC_LIBRARIES}")
 
 # Find platform-specific libraries
