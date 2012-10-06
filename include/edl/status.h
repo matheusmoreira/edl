@@ -4,7 +4,8 @@
 typedef enum edl_status {
     EDL_SUCCESS,
     EDL_FAILURE,
-    EDL_CLOSED_SUCCESSFULLY
+    EDL_CLOSED_SUCCESSFULLY,
+    EDL_DESTROYED_SUCCESSFULLY
 } edl_status_t;
 
 extern int edl_status_is_successful(edl_status_t status);
