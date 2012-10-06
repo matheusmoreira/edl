@@ -19,10 +19,11 @@ edl_library_t * edl_library_new() {
     return library;
 }
 
-void edl_library_destroy(edl_library_t * library) {
-    if (library == NULL) { return; }
-    edl_library_close(library);
+edl_status_t edl_library_destroy(edl_library_t * library) {
+    if (library == NULL) { return EDL_SUCCESS; }
+    if (edl_library_close(library) == EDL_FAILURE) { return EDL_FAILURE; }
     free(library);
+    return EDL_SUCCESS;
 }
 
 edl_status_t edl_library_open(edl_library_t * library, const char * name) {
