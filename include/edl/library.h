@@ -16,6 +16,6 @@ extern edl_status_t edl_library_current(edl_library_t * library);
 extern void * edl_library_resolve_symbol(edl_library_t * library,
                                           const char * symbol);
 
-extern const char * edl_library_last_error();
+extern const char * edl_library_last_error(edl_library_t * library);
 
 #endif /* EDL_LIBRARY_HEADER */

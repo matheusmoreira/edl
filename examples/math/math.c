@@ -30,14 +30,16 @@ int main(int argc, char ** argv) {
     status = edl_library_open(math_library, path_to_library);
     if (edl_status_is_failure(status)) {
         fprintf(stderr,
-                "Could not open math library - %s\n", edl_library_last_error());
+                "Could not open math library - %s\n",
+                edl_library_last_error(math_library));
         exit(2);
     }
 
     pow = (pow_function_t) edl_library_resolve_symbol(math_library, "pow");
     if (pow == NULL) {
         fprintf(stderr,
-                "Symbol resolution failed - %s\n", edl_library_last_error());
+                "Symbol resolution failed - %s\n",
+                edl_library_last_error(math_library));
         exit(3);
     }
 
@@ -47,7 +49,7 @@ int main(int argc, char ** argv) {
     if(edl_status_is_failure(status)) {
         fprintf(stderr,
                 "Could not destroy the math library - %s\n",
-                edl_library_last_error());
+                edl_library_last_error(math_library));
         exit(4);
     }
 
