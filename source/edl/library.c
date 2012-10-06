@@ -21,7 +21,10 @@ static void edl_library_set_error(edl_library_t * library);
 /* edl_library interface implementation */
 
 edl_library_t * edl_library_create() {
-    edl_library_t * library = malloc(sizeof *library);
+    edl_library_t * library = NULL;
+
+    library = malloc(sizeof *library);
+    if (library == NULL) { return NULL; }
 
     library->name = library->native_handle = library->error_message = NULL;
 
