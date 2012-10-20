@@ -18,8 +18,6 @@ message("Platform-specific directory: ${EDL_PLATFORM_SPECIFIC_DIR}")
 include_directories(${EDL_INCLUDE_DIR})
 file(GLOB_RECURSE EDL_SOURCE_FILES ${EDL_SOURCE_DIR}/*.c)
 
-message("Source files: ${EDL_SOURCE_FILES}")
-
 # Detect underlying system
 if(${CMAKE_SYSTEM_NAME} MATCHES "Linux")
     set(EDL_PLATFORM linux)
@@ -52,8 +50,6 @@ message("Platform-specific source directory: ${EDL_PLATFORM_SPECIFIC_SOURCE_DIR}
 include_directories(${EDL_PLATFORM_SPECIFIC_INCLUDE_DIR})
 file(GLOB_RECURSE EDL_PLATFORM_SPECIFIC_SOURCE_FILES
      ${EDL_PLATFORM_SPECIFIC_SOURCE_DIR}/*.c)
-
-message("Platform-specific source files: ${EDL_PLATFORM_SPECIFIC_SOURCE_FILES}")
 
 # Configure EDL library
 add_library(${EDL_LIBRARY}
