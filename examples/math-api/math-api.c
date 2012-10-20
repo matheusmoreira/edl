@@ -9,9 +9,9 @@ trigonometric_function sine, cosine, tangent;
 
 edl_api trigonometry_api = {
     .objects = NULL, .functions = (edl_api_function[]) {
-        { "sin", (edl_function *) &sine },
-        { "cos", (edl_function *) &cosine },
-        { "tan", (edl_function *) &tangent},
+        { "sin", (edl_function *) &sine    },
+        { "cos", (edl_function *) &cosine  },
+        { "tan", (edl_function *) &tangent },
         { 0 }
     }
 };
