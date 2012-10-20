@@ -79,7 +79,7 @@ edl_status edl_library_close(edl_library * library) {
     return status;
 }
 
-extern edl_object edl_library_get_object(edl_library * library,
+edl_object edl_library_get_object(edl_library * library,
                                           const char * name) {
     edl_object object = NULL;
 
@@ -89,7 +89,7 @@ extern edl_object edl_library_get_object(edl_library * library,
     return object;
 }
 
-extern edl_function edl_library_get_function(edl_library * library,
+edl_function edl_library_get_function(edl_library * library,
                                               const char * name) {
     edl_function function = NULL;
 
