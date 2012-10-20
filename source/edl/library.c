@@ -16,12 +16,12 @@ struct edl_library {
 /* Helper function prototypes */
 
 static void * edl_library_find_and_open(const char * name);
-static void edl_library_set_error(edl_library_t * library);
+static void edl_library_set_error(edl_library * library);
 
 /* edl_library interface implementation */
 
-edl_library_t * edl_library_create() {
-    edl_library_t * library = NULL;
+edl_library * edl_library_create() {
+    edl_library * library = NULL;
 
     library = malloc(sizeof *library);
     if (library == NULL) { return NULL; }
@@ -31,9 +31,9 @@ edl_library_t * edl_library_create() {
     return library;
 }
 
-edl_status_t edl_library_destroy(edl_library_t * library) {
+edl_status edl_library_destroy(edl_library * library) {
     if (library == NULL) { return EDL_SUCCESS; } else {
-        edl_status_t status = edl_library_close(library);
+        edl_status status = edl_library_close(library);
         if (edl_status_is_failure(status)) { return status; }
     }
 
@@ -42,7 +42,7 @@ edl_status_t edl_library_destroy(edl_library_t * library) {
     return EDL_DESTROYED_SUCCESSFULLY;
 }
 
-edl_status_t edl_library_open(edl_library_t * library, const char * name) {
+edl_status edl_library_open(edl_library * library, const char * name) {
     void * handle = NULL;
 
     if (library == NULL) { return EDL_FAILURE; }
@@ -59,12 +59,12 @@ edl_status_t edl_library_open(edl_library_t * library, const char * name) {
     return EDL_SUCCESS;
 }
 
-edl_status_t edl_library_current(edl_library_t * library) {
+edl_status edl_library_current(edl_library * library) {
     return edl_library_open(library, NULL);
 }
 
-edl_status_t edl_library_close(edl_library_t * library) {
-    edl_status_t status = EDL_CLOSED_SUCCESSFULLY;
+edl_status edl_library_close(edl_library * library) {
+    edl_status status = EDL_CLOSED_SUCCESSFULLY;
 
     if (library != NULL && library->native_handle != NULL) {
         status = edl_native_library_close(library->native_handle);
@@ -79,9 +79,9 @@ edl_status_t edl_library_close(edl_library_t * library) {
     return status;
 }
 
-extern edl_object_t edl_library_get_object(edl_library_t * library,
-                                            const char * name) {
-    edl_object_t object = NULL;
+extern edl_object edl_library_get_object(edl_library * library,
+                                          const char * name) {
+    edl_object object = NULL;
 
     object = edl_native_library_get_object(library->native_handle, name);
     if (object == NULL) { edl_library_set_error(library); }
@@ -89,9 +89,9 @@ extern edl_object_t edl_library_get_object(edl_library_t * library,
     return object;
 }
 
-extern edl_function_t edl_library_get_function(edl_library_t * library,
-                                                const char * name) {
-    edl_function_t function = NULL;
+extern edl_function edl_library_get_function(edl_library * library,
+                                              const char * name) {
+    edl_function function = NULL;
 
     function = edl_native_library_get_function(library->native_handle, name);
     if (function == NULL) { edl_library_set_error(library); }
@@ -99,7 +99,7 @@ extern edl_function_t edl_library_get_function(edl_library_t * library,
     return function;
 }
 
-const char * edl_library_last_error(edl_library_t * library) {
+const char * edl_library_last_error(edl_library * library) {
     return library->error_message;
 }
 
@@ -110,6 +110,6 @@ static void * edl_library_find_and_open(const char * name) {
     return edl_native_library_open(name);
 }
 
-static void edl_library_set_error(edl_library_t * library) {
+static void edl_library_set_error(edl_library * library) {
     library->error_message = edl_native_library_last_error();
 }

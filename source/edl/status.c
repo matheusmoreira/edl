@@ -2,7 +2,7 @@
 
 /* edl_status interface implementation */
 
-int edl_status_is_successful(edl_status_t status) {
+int edl_status_is_successful(edl_status status) {
     switch (status) {
         case EDL_SUCCESS:
         case EDL_CLOSED_SUCCESSFULLY:
@@ -13,13 +13,13 @@ int edl_status_is_successful(edl_status_t status) {
     }
 }
 
-int edl_status_is_failure(edl_status_t status) {
+int edl_status_is_failure(edl_status status) {
     return !edl_status_is_successful(status);
 }
 
 #define NAME(status) case status: return #status; break
 
-const char * edl_status_name(edl_status_t status) {
+const char * edl_status_name(edl_status status) {
     switch (status) {
         NAME(EDL_SUCCESS);
         NAME(EDL_FAILURE);

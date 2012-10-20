@@ -3,13 +3,13 @@
 
 #include <edl.h>
 
-typedef double (*pow_function_t)(double, double);
+typedef double (*pow_function)(double, double);
 
 int main(int argc, char ** argv) {
     const char * path_to_library = "libm.so";
-    edl_library_t * math_library = NULL;
-    edl_status_t status;
-    pow_function_t pow;
+    edl_library * math_library = NULL;
+    edl_status status;
+    pow_function pow;
     double base = 2, exponent = 16;
 
     if (argc >= 3) {
@@ -42,7 +42,7 @@ int main(int argc, char ** argv) {
     }
 
     printf("Acquiring \"pow\" function...");
-    pow = (pow_function_t) edl_library_get_function(math_library, "pow");
+    pow = (pow_function) edl_library_get_function(math_library, "pow");
     if (pow == NULL) {
         fprintf(stderr,
                 "\n" "Could not find function - %s" "\n",
