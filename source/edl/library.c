@@ -100,6 +100,7 @@ extern edl_function edl_library_get_function(edl_library * library,
 }
 
 const char * edl_library_last_error(edl_library * library) {
+    if (library == NULL) { return NULL; }
     return library->error_message;
 }
 
