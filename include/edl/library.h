@@ -21,6 +21,9 @@ extern edl_object edl_library_get_object(edl_library * library,
 extern edl_function edl_library_get_function(edl_library * library,
                                               const char * name);
 
+extern int edl_library_is_open(edl_library * library);
+extern int edl_library_is_closed(edl_library * library);
+
 extern const char * edl_library_last_error(edl_library * library);
 
 #endif /* EDL_LIBRARY_HEADER */

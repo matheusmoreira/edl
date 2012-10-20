@@ -99,6 +99,15 @@ edl_function edl_library_get_function(edl_library * library,
     return function;
 }
 
+int edl_library_is_open(edl_library * library) {
+    if (library == NULL) { return 0; }
+    return library->native_handle != NULL;
+}
+
+int edl_library_is_closed(edl_library * library) {
+    return !edl_library_is_open(library);
+}
+
 const char * edl_library_last_error(edl_library * library) {
     if (library == NULL) { return NULL; }
     return library->error_message;
