@@ -1,9 +1,9 @@
 #include <stdlib.h>
 
-#include <edl/platform/specifics.h>
-
-#include <edl/function.h>
 #include <edl/library.h>
+
+#include <edl/platform/specifics.h>
+#include <edl/function.h>
 #include <edl/object.h>
 #include <edl/status.h>
 
