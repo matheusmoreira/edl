@@ -4,8 +4,12 @@
 typedef enum edl_status {
     EDL_SUCCESS,
     EDL_FAILURE,
+
     EDL_CLOSED_SUCCESSFULLY,
-    EDL_DESTROYED_SUCCESSFULLY
+    EDL_DESTROYED_SUCCESSFULLY,
+    EDL_API_INITIALIZED_SUCCESSFULLY,
+
+    EDL_LIBRARY_CLOSED_ERROR
 } edl_status;
 
 extern int edl_status_is_successful(edl_status status);
