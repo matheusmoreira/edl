@@ -1,6 +1,7 @@
 #ifndef EDL_HEADER
 #define EDL_HEADER
 
+#include <edl/api.h>
 #include <edl/function.h>
 #include <edl/library.h>
 #include <edl/object.h>
