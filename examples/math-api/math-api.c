@@ -38,7 +38,7 @@ int main(int argc, char ** argv) {
     printf("Creating math library...");
     math_library = edl_library_create();
     if (math_library == NULL) {
-        fprintf(stderr, "\n" "Could not allocate memory for math library" "\n");
+        printf("\n" "Could not allocate memory for math library" "\n");
         destroy(math_library);
         exit(1);
     } else { printf(" created" "\n"); }
@@ -47,9 +47,8 @@ int main(int argc, char ** argv) {
     status = edl_library_open(math_library, path_to_library);
     printf("%s" "\n", edl_status_name(status));
     if (edl_status_is_failure(status)) {
-        fprintf(stderr,
-                "Could not open math library - %s" "\n",
-                edl_library_last_error(math_library));
+        printf("Could not open math library - %s" "\n",
+               edl_library_last_error(math_library));
         destroy(math_library);
         exit(2);
     }
@@ -58,9 +57,8 @@ int main(int argc, char ** argv) {
     status = edl_api_initialize(&trigonometry_api, math_library);
     printf("%s" "\n", edl_status_name(status));
     if (edl_status_is_failure(status)) {
-        fprintf(stderr,
-                "\n" "Could not find object or function - %s" "\n",
-                edl_library_last_error(math_library));
+        printf("\n" "Could not find object or function - %s" "\n",
+               edl_library_last_error(math_library));
         destroy(math_library);
         exit(3);
     }
