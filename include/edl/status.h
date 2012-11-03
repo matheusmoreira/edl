@@ -8,6 +8,12 @@
 #ifndef EDL_STATUS_HEADER
 #define EDL_STATUS_HEADER
 
+/**
+ * @brief Enumeration of all possible function statuses.
+ *
+ * `edl_status` represents all possible success or error states that functions
+ * may assume.
+ */
 typedef enum edl_status {
     EDL_SUCCESS,
 
