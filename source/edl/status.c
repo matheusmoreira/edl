@@ -34,7 +34,7 @@ const char * edl_status_name(edl_status status) {
         NAME(EDL_DESTROYED_SUCCESSFULLY);
         NAME(EDL_API_INITIALIZED_SUCCESSFULLY);
 
-        NAME(EDL_LIBRARY_CLOSED_ERROR);
+        NAME(EDL_API_LIBRARY_CLOSED_ERROR);
     }
 }
 
