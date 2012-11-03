@@ -75,6 +75,21 @@ extern edl_status edl_library_destroy(edl_library * library);
  */
 extern edl_status edl_library_open(edl_library * library,
                                     const char * name);
+
+/**
+ * Closes the handle to the library's shared object.
+ *
+ * @param [in] library The library to be closed. May be `NULL`.
+ * @return
+ *   - EDL_NOTHING_TO_DO
+ *     - if there is no library to close.
+ *   - EDL_LIBRARY_ALREADY_CLOSED
+ *     - if the library is already closed.
+ *   -  The status returned by `edl_native_library_close()`
+ *     - if the library could not be closed successfully.
+ *   - EDL_LIBRARY_CLOSED_SUCCESSFULLY
+ *     - if the library was successfully closed.
+ */
 extern edl_status edl_library_close(edl_library * library);
 extern edl_status edl_library_current(edl_library * library);
 
