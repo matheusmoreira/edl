@@ -1,3 +1,9 @@
+/**
+ * @file edl/api.h
+ *
+ * Defines the `edl_api` structure and declares related functions.
+ */
+
 #ifndef EDL_API_HEADER
 #define EDL_API_HEADER
 
