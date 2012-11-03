@@ -6,10 +6,10 @@ int edl_status_is_successful(edl_status status) {
     switch (status) {
         case EDL_SUCCESS:
 
+        case EDL_API_INITIALIZED_SUCCESSFULLY:
+
         case EDL_CLOSED_SUCCESSFULLY:
         case EDL_DESTROYED_SUCCESSFULLY:
-
-        case EDL_API_INITIALIZED_SUCCESSFULLY:
 
             return 1;
 
@@ -30,9 +30,10 @@ const char * edl_status_name(edl_status status) {
         NAME(EDL_SUCCESS);
         NAME(EDL_FAILURE);
 
+        NAME(EDL_API_INITIALIZED_SUCCESSFULLY);
+
         NAME(EDL_CLOSED_SUCCESSFULLY);
         NAME(EDL_DESTROYED_SUCCESSFULLY);
-        NAME(EDL_API_INITIALIZED_SUCCESSFULLY);
 
         NAME(EDL_API_LIBRARY_CLOSED_ERROR);
     }
