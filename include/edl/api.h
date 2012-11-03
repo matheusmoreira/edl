@@ -56,7 +56,30 @@ typedef struct edl_api {
     edl_api_function * functions; /**< Null-terminated array of API functions. */
 } edl_api;
 
-
+/**
+ * Binds the objects and functions referenced by `api` to their associated
+ * objects and functions in the `library`.
+ *
+ * If the given `api` is `NULL`, then this function was not given an API to
+ * initialize and thus does nothing.
+ *
+ * @param [in] api The API to initialize. May be NULL.
+ * @param [in] library The library that contains the objects and functions. Must
+ *                     be initialized and open.
+ * @return
+ *   - `EDL_NOTHING_TO_DO`
+ *     - if there is no API to initialize.
+ *   - `EDL_API_LIBRARY_NOT_GIVEN_ERROR`
+ *     - if given an API to initialize but not a library to bind against.
+ *   - `EDL_API_LIBRARY_CLOSED_ERROR`
+ *     - if given an API to initialize and a library that is not open.
+ *   - `EDL_API_OBJECT_INITIALIZATION_ERROR`
+ *     - if an object was not successfully initialized.
+ *   - `EDL_API_FUNCTION_INITIALIZATION_ERROR`
+ *     - if a function was not successfully initialized.
+ *   - `EDL_API_INITIALIZED_SUCCESSFULLY`
+ *     - if the entire API was successfully initialized.
+ */
 extern edl_status edl_api_initialize(edl_api * api, edl_library * library);
 
 #endif /* EDL_API_HEADER */
