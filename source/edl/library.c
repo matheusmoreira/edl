@@ -73,6 +73,8 @@ edl_status edl_library_close(edl_library * library) {
         } else {
             edl_library_set_error(library);
         }
+    } else {
+        status = EDL_LIBRARY_ALREADY_CLOSED
     }
 
     return status;
