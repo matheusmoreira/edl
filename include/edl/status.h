@@ -5,6 +5,8 @@ typedef enum edl_status {
     EDL_SUCCESS,
     EDL_FAILURE,
 
+    EDL_NOTHING_TO_DO,
+
     EDL_API_INITIALIZED_SUCCESSFULLY,
 
     EDL_CLOSED_SUCCESSFULLY,
