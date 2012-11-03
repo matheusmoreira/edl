@@ -59,14 +59,15 @@ extern edl_status edl_library_destroy(edl_library * library);
  * Searches for the dynamic library given by `name`, obtains a handle to the
  * shared object and associates it with the given `library`.
  *
+ * If the given `name` is `NULL`, the current process will be opened as a
+ * library.
+ *
  * @param [in] library The library to be opened. May be `NULL`.
  * @param [in] name The relative or absolute path to the library's shared
- *                  object.
+ *                  object. May be `NULL`.
  * @return
  *   - EDL_NOTHING_TO_DO
  *     - if there is no library to open.
- *   - EDL_LIBRARY_NAME_NOT_GIVEN_ERROR
- *     - if given a library to open but not the name of the library.
  *   - EDL_FAILURE
  *     - if a handle to the library's shared object could not be obtained.
  *   - EDL_SUCCESS
