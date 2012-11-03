@@ -61,10 +61,6 @@ edl_status edl_library_open(edl_library * library, const char * name) {
     return EDL_SUCCESS;
 }
 
-edl_status edl_library_current(edl_library * library) {
-    return edl_library_open(library, NULL);
-}
-
 edl_status edl_library_close(edl_library * library) {
     edl_status status = EDL_LIBRARY_CLOSED_SUCCESSFULLY;
 
@@ -79,6 +75,10 @@ edl_status edl_library_close(edl_library * library) {
     }
 
     return status;
+}
+
+edl_status edl_library_current(edl_library * library) {
+    return edl_library_open(library, NULL);
 }
 
 edl_object edl_library_get_object(edl_library * library,
