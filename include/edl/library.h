@@ -31,6 +31,13 @@
  */
 typedef struct edl_library edl_library;
 
+/**
+ * Allocates and initializes memory for a new library and returns a pointer to
+ * it.
+ *
+ * @return Pointer to the library.
+ * @see edl_library_destroy
+ */
 extern edl_library * edl_library_create();
 extern edl_status edl_library_destroy(edl_library * library);
 
