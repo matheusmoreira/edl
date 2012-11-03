@@ -21,7 +21,7 @@ edl_function edl_native_library_get_function(void * native_handle,
 }
 
 edl_status edl_native_library_close(void * native_handle) {
-    return dlclose(native_handle) == 0 ? EDL_CLOSED_SUCCESSFULLY : EDL_FAILURE;
+    return dlclose(native_handle) == 0 ? EDL_LIBRARY_CLOSED_SUCCESSFULLY : EDL_FAILURE;
 }
 
 const char * edl_native_library_last_error() {
