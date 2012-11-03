@@ -47,6 +47,13 @@ extern int edl_status_is_successful(edl_status status);
  * @return `0` if successful, non-zero otherwise.
  */
 extern int edl_status_is_failure(edl_status status);
+
+/**
+ * Returns the string representation of the given status.
+ *
+ * @param [in] status The status whose string representation is desired.
+ * @return The string representation of the status.
+ */
 extern const char * edl_status_name(edl_status status);
 
 #endif /* EDL_STATUS_HEADER */
