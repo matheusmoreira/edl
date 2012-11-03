@@ -55,6 +55,23 @@ extern edl_library * edl_library_create();
  */
 extern edl_status edl_library_destroy(edl_library * library);
 
+/**
+ * Searches for the dynamic library given by `name`, obtains a handle to the
+ * shared object and associates it with the given `library`.
+ *
+ * @param [in] library The library to be opened. May be `NULL`.
+ * @param [in] name The relative or absolute path to the library's shared
+ *                  object.
+ * @return
+ *   - EDL_NOTHING_TO_DO
+ *     - if there is no library to open.
+ *   - EDL_LIBRARY_NAME_NOT_GIVEN_ERROR
+ *     - if given a library to open but not the name of the library.
+ *   - EDL_FAILURE
+ *     - if a handle to the library's shared object could not be obtained.
+ *   - EDL_SUCCESS
+ *     - if the library was successfully opened.
+ */
 extern edl_status edl_library_open(edl_library * library,
                                     const char * name);
 extern edl_status edl_library_close(edl_library * library);
