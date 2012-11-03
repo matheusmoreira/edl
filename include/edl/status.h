@@ -1,3 +1,10 @@
+/**
+ * @file
+ *
+ * Defines the `edl_api` enumeration, enumerates all possible function statuses
+ * and declares related functions.
+ */
+
 #ifndef EDL_STATUS_HEADER
 #define EDL_STATUS_HEADER
 
