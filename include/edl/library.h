@@ -39,6 +39,20 @@ typedef struct edl_library edl_library;
  * @see edl_library_destroy
  */
 extern edl_library * edl_library_create();
+
+/**
+ * Frees the memory allocated for the library. If the library is still open, it
+ * will be closed.
+ *
+ * @param [in] library The library to destroy. May be `NULL`.
+ * @return
+ *   - EDL_NOTHING_TO_DO
+ *     - if there is no library to destroy.
+ *   - The status returned by `edl_library_close()`
+ *     - if the library was still open and could not be closed successfully.
+ *   - EDL_LIBRARY_DESTROYED_SUCCESSFULLY
+ *     - if the library was successfully destroyed.
+ */
 extern edl_status edl_library_destroy(edl_library * library);
 
 extern edl_status edl_library_open(edl_library * library,
