@@ -15,7 +15,8 @@ edl_status edl_api_initialize(edl_api * api, edl_library * library) {
     edl_api_object * api_object = NULL;
     edl_api_function * api_function = NULL;
 
-    if (api == NULL || library == NULL) { return EDL_FAILURE; }
+    if (api == NULL) { rturn EDL_SUCCESS; }
+    if (library == NULL) { return EDL_FAILURE; }
     if (edl_library_is_closed(library)) { return EDL_LIBRARY_CLOSED_ERROR; }
 
     for (api_object = api->objects; api_object != NULL && api_object->name != NULL; ++api_object) {
