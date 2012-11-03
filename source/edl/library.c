@@ -47,6 +47,7 @@ edl_status edl_library_open(edl_library * library, const char * name) {
     void * handle = NULL;
 
     if (library == NULL) { return EDL_NOTHING_TO_DO; }
+    /* name may be NULL */
 
     handle = edl_library_find_and_open(name);
     if (handle == NULL) {
