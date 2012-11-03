@@ -10,6 +10,7 @@ int edl_status_is_successful(edl_status status) {
 
         case EDL_API_INITIALIZED_SUCCESSFULLY:
 
+        case EDL_LIBRARY_ALREADY_CLOSED:
         case EDL_LIBRARY_CLOSED_SUCCESSFULLY:
         case EDL_LIBRARY_DESTROYED_SUCCESSFULLY:
 
@@ -35,6 +36,7 @@ const char * edl_status_name(edl_status status) {
 
         NAME(EDL_API_INITIALIZED_SUCCESSFULLY);
 
+        NAME(EDL_LIBRARY_ALREADY_CLOSED);
         NAME(EDL_LIBRARY_CLOSED_SUCCESSFULLY);
         NAME(EDL_LIBRARY_DESTROYED_SUCCESSFULLY);
 
