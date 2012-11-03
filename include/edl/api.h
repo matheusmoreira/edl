@@ -53,8 +53,9 @@
  */
 typedef struct edl_api {
     edl_api_object * objects; /**< Null-terminated array of API objects. */
-    edl_api_function * functions;
+    edl_api_function * functions; /**< Null-terminated array of API functions. */
 } edl_api;
+
 
 extern edl_status edl_api_initialize(edl_api * api, edl_library * library);
 
