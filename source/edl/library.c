@@ -33,7 +33,7 @@ edl_library * edl_library_create() {
 }
 
 edl_status edl_library_destroy(edl_library * library) {
-    if (library == NULL) { return EDL_SUCCESS; } else {
+    if (library == NULL) { return EDL_NOTHING_TO_DO; } else {
         edl_status status = edl_library_close(library);
         if (edl_status_is_failure(status)) { return status; }
     }
