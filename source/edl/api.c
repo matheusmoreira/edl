@@ -25,7 +25,7 @@ edl_status edl_api_initialize(edl_api * api, edl_library * library) {
         if (object != NULL) {
             *object = edl_library_get_object(library, api_object->name);
 
-            if (*object == NULL) { return EDL_FAILURE; }
+            if (*object == NULL) { return EDL_API_OBJECT_INITIALIZATION_ERROR; }
         }
     }
 
@@ -36,7 +36,7 @@ edl_status edl_api_initialize(edl_api * api, edl_library * library) {
             *function = edl_library_get_function(library, api_function->name);
         }
 
-        if (*function == NULL) { return EDL_FAILURE; }
+        if (*function == NULL) { return EDL_API_FUNCTION_INITIALIZATION_ERROR; }
     }
 
     return EDL_API_INITIALIZED_SUCCESSFULLY;
