@@ -18,6 +18,8 @@ edl_api api = {
 
 };
 
+void destroy(edl_library * library);
+
 int main(int argc, char ** argv) {
     const char * path_to_library = "library/libapi_example.so";
     edl_library * library = NULL;
@@ -31,6 +33,7 @@ int main(int argc, char ** argv) {
     library = edl_library_create();
     if (library == NULL) {
         fprintf(stderr, "\n" "Could not allocate memory for library" "\n");
+        destroy(library);
         exit(1);
     } else { printf(" created" "\n"); }
 
@@ -41,6 +44,7 @@ int main(int argc, char ** argv) {
         fprintf(stderr,
                 "Could not open library - %s" "\n",
                 edl_library_last_error(library));
+        destroy(library);
         exit(2);
     }
 
@@ -51,6 +55,7 @@ int main(int argc, char ** argv) {
         fprintf(stderr,
                 "\n" "Could not find object or function - %s" "\n",
                 edl_library_last_error(library));
+        destroy(library);
         exit(3);
     }
 
@@ -60,15 +65,21 @@ int main(int argc, char ** argv) {
 
     printf("\n");
 
+    destroy(library);
+
+    return 0;
+}
+
+void destroy(edl_library * library) {
+    edl_status status = EDL_FAILURE;
+
     printf("Destroying library... ");
     status = edl_library_destroy(library);
     printf("%s" "\n", edl_status_name(status));
-    if(edl_status_is_failure(status)) {
-        fprintf(stderr,
-                "Could not destroy the library - %s" "\n",
-                edl_library_last_error(library));
-        exit(4);
-    }
 
-    return 0;
+    if(edl_status_is_failure(status)) {
+        printf("Could not destroy the library - %s" "\n",
+               edl_library_last_error(library));
+        exit(-1);
+    }
 }

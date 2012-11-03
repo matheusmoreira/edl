@@ -5,6 +5,8 @@
 
 typedef double (*pow_function)(double, double);
 
+void destroy(edl_library * library);
+
 int main(int argc, char ** argv) {
     const char * path_to_library = "libm.so";
     edl_library * math_library = NULL;
@@ -28,6 +30,7 @@ int main(int argc, char ** argv) {
     math_library = edl_library_create();
     if (math_library == NULL) {
         fprintf(stderr, "\n" "Could not allocate memory for math library" "\n");
+        destroy(math_library);
         exit(1);
     } else { printf(" created" "\n"); }
 
@@ -38,6 +41,7 @@ int main(int argc, char ** argv) {
         fprintf(stderr,
                 "Could not open math library - %s" "\n",
                 edl_library_last_error(math_library));
+        destroy(math_library);
         exit(2);
     }
 
@@ -47,21 +51,28 @@ int main(int argc, char ** argv) {
         fprintf(stderr,
                 "\n" "Could not find function - %s" "\n",
                 edl_library_last_error(math_library));
+        destroy(math_library);
         exit(3);
     } else { printf(" acquired\n"); }
 
     printf("\n\t" "%f ^ %f = %f" "\n\n",
            base, exponent, pow(base, exponent));
 
-    printf("Destroying math library... ");
-    status = edl_library_destroy(math_library);
-    printf("%s" "\n", edl_status_name(status));
-    if(edl_status_is_failure(status)) {
-        fprintf(stderr,
-                "Could not destroy the math library - %s" "\n",
-                edl_library_last_error(math_library));
-        exit(4);
-    }
+    destroy(math_library);
 
     return 0;
+}
+
+void destroy(edl_library * library) {
+    edl_status status = EDL_FAILURE;
+
+    printf("Destroying math library... ");
+    status = edl_library_destroy(library);
+    printf("%s" "\n", edl_status_name(status));
+
+    if(edl_status_is_failure(status)) {
+        printf("Could not destroy the math library - %s" "\n",
+               edl_library_last_error(library));
+        exit(-1);
+    }
 }
