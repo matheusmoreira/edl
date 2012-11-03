@@ -39,7 +39,7 @@ edl_status edl_library_destroy(edl_library * library) {
 
     free(library);
 
-    return EDL_DESTROYED_SUCCESSFULLY;
+    return EDL_LIBRARY_DESTROYED_SUCCESSFULLY;
 }
 
 edl_status edl_library_open(edl_library * library, const char * name) {

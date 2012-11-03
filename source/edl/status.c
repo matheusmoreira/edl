@@ -11,7 +11,7 @@ int edl_status_is_successful(edl_status status) {
         case EDL_API_INITIALIZED_SUCCESSFULLY:
 
         case EDL_LIBRARY_CLOSED_SUCCESSFULLY:
-        case EDL_DESTROYED_SUCCESSFULLY:
+        case EDL_LIBRARY_DESTROYED_SUCCESSFULLY:
 
             return 1;
 
