@@ -52,7 +52,7 @@
  * structure with the `name` member set to `NULL`;
  */
 typedef struct edl_api {
-    edl_api_object * objects;
+    edl_api_object * objects; /**< Null-terminated array of API objects. */
     edl_api_function * functions;
 } edl_api;
 
