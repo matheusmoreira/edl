@@ -1,5 +1,5 @@
 /**
- * @file edl/api.h
+ * @file
  *
  * Defines the `edl_api` structure and declares related functions.
  */
