@@ -26,7 +26,8 @@ edl_library * edl_library_create() {
     library = malloc(sizeof *library);
     if (library == NULL) { return NULL; }
 
-    library->name = library->native_handle = library->error_message = NULL;
+    library->name = library->error_message = NULL;;
+    library->native_handle = NULL;
 
     return library;
 }
