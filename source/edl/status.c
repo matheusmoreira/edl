@@ -30,7 +30,6 @@ int edl_status_is_failure(edl_status status) {
 const char * edl_status_name(edl_status status) {
     switch (status) {
         NAME(EDL_SUCCESS);
-        NAME(EDL_FAILURE);
 
         NAME(EDL_NOTHING_TO_DO);
 
@@ -38,6 +37,8 @@ const char * edl_status_name(edl_status status) {
 
         NAME(EDL_CLOSED_SUCCESSFULLY);
         NAME(EDL_DESTROYED_SUCCESSFULLY);
+
+        NAME(EDL_FAILURE);
 
         NAME(EDL_API_LIBRARY_NOT_GIVEN_ERROR);
         NAME(EDL_API_LIBRARY_CLOSED_ERROR);

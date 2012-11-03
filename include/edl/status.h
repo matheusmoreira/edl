@@ -3,7 +3,6 @@
 
 typedef enum edl_status {
     EDL_SUCCESS,
-    EDL_FAILURE,
 
     EDL_NOTHING_TO_DO,
 
@@ -11,6 +10,8 @@ typedef enum edl_status {
 
     EDL_CLOSED_SUCCESSFULLY,
     EDL_DESTROYED_SUCCESSFULLY,
+
+    EDL_FAILURE,
 
     EDL_API_LIBRARY_NOT_GIVEN_ERROR,
     EDL_API_LIBRARY_CLOSED_ERROR,
