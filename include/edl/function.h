@@ -1,3 +1,9 @@
+/**
+ * @file
+ *
+ * Defines the `edl_function` type.
+ */
+
 #ifndef EDL_FUNCTION_HEADER
 #define EDL_FUNCTION_HEADER
 
