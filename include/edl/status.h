@@ -32,6 +32,12 @@ typedef enum edl_status {
     EDL_API_FUNCTION_INITIALIZATION_ERROR
 } edl_status;
 
+/**
+ * Determines whether the given status is successful.
+ *
+ * @param [in] status The status to test.
+ * @return Non-zero if successful, `0` otherwise.
+ */
 extern int edl_status_is_successful(edl_status status);
 extern int edl_status_is_failure(edl_status status);
 extern const char * edl_status_name(edl_status status);
