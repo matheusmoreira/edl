@@ -61,6 +61,7 @@ extern edl_status edl_library_create(edl_library ** library);
  *     - if the library was still open and could not be closed successfully.
  *   - EDL_LIBRARY_DESTROYED_SUCCESSFULLY
  *     - if the library was successfully destroyed.
+ * @see edl_library_close
  */
 extern edl_status edl_library_destroy(edl_library * library);
 
