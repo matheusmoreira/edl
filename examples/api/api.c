@@ -29,13 +29,14 @@ int main(int argc, char ** argv) {
 
     printf("Library: %s" "\n", path_to_library);
 
-    printf("Creating library...");
-    library = edl_library_create();
-    if (library == NULL) {
-        printf("\n" "Could not allocate memory for library" "\n");
+    printf("Creating library... ");
+    status = edl_library_create(&library);
+    printf("%s" "\n", edl_status_name(status));
+    if (edl_status_is_failure(status)) {
+        printf("\n" "Could not create library" "\n");
         destroy(library);
         exit(1);
-    } else { printf(" created" "\n"); }
+    }
 
     printf("Opening \"%s\"... ", path_to_library);
     status = edl_library_open(library, path_to_library);
