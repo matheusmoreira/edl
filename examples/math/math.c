@@ -48,7 +48,7 @@ int main(int argc, char ** argv) {
     printf("Acquiring \"pow\" function... ");
     status = edl_library_get_function(math_library, "pow", (edl_function *) &pow);
     printf("%s" "\n", edl_status_name(status));
-    if (pow == NULL) {
+    if (edl_status_is_failure(status)) {
         printf("\n" "Could not find function - %s" "\n",
                 edl_library_last_error(math_library));
         destroy(math_library);
