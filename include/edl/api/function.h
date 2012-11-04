@@ -16,7 +16,7 @@
  * with the local function pointer that will be made to point to it.
  */
 typedef struct edl_api_function {
-    const char * name;
+    const char * name; /**< Symbol which identifies the external function. */
     edl_function * function;
 } edl_api_function;
 
