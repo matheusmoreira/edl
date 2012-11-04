@@ -91,6 +91,21 @@ extern edl_status edl_library_open(edl_library * library,
  *     - if the library was successfully closed.
  */
 extern edl_status edl_library_close(edl_library * library);
+
+/**
+ * Opens the current process as a dynamic library.
+ *
+ * This is the same as calling `edl_library_open(library, NULL)`.
+ *
+ * @param [in] library The library to be opened. May be `NULL`.
+ * @return
+ *   - EDL_NOTHING_TO_DO
+ *     - if there is no library to open.
+ *   - EDL_FAILURE
+ *     - if a handle to the library's shared object could not be obtained.
+ *   - EDL_SUCCESS
+ *     - if the library was successfully opened.
+ */
 extern edl_status edl_library_current(edl_library * library);
 
 extern edl_object edl_library_get_object(edl_library * library,
