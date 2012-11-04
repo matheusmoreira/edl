@@ -137,6 +137,13 @@ extern edl_function edl_library_get_function(edl_library * library,
  * @return Non-zero if the library is open, `0` otherwise.
  */
 extern int edl_library_is_open(edl_library * library);
+
+/**
+ * Determines whether the library is closed.
+ *
+ * @param [in] edl_library The library to test.
+ * @return Non-zero if the library is closed, `0` otherwise.
+ */
 extern int edl_library_is_closed(edl_library * library);
 
 extern const char * edl_library_last_error(edl_library * library);
