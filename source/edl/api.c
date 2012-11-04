@@ -31,9 +31,9 @@ edl_status edl_api_initialize(edl_api * api, edl_library * library) {
     for (api_function = api->functions; api_function != NULL && api_function->name != NULL; ++api_function) {
         if (api_function->function) {
             status = edl_library_get_function(library, api_function->name, api_function->function);
-        }
 
-        if (edl_status_is_failure(status)) { return EDL_API_FUNCTION_INITIALIZATION_ERROR; }
+            if (edl_status_is_failure(status)) { return EDL_API_FUNCTION_INITIALIZATION_ERROR; }
+        }
     }
 
     return EDL_API_INITIALIZED_SUCCESSFULLY;
