@@ -32,10 +32,18 @@
 typedef struct edl_library edl_library;
 
 /**
- * Allocates and initializes memory for a new library and returns a pointer to
- * it.
+ * Allocates and initializes memory for a new library and makes the given
+ * `library` reference point to it.
  *
- * @return Pointer to the newly-created library.
+ * @param [out] library Pointer to the library pointer which will be initialized
+ *                      with the address of the newly created library.
+ * @return
+ *   - EDL_NOTHING_TO_DO
+ *     - if not given a valid library reference.
+ *   - EDL_MEMORY_ALLOCATION_ERROR
+ *     - if memory for the library could not be allocated.
+ *   - EDL_LIBRARY_CREATED_SUCCESSFULLY
+ *     - if the library was successfully created.
  * @see edl_library_destroy
  */
 extern edl_status edl_library_create(edl_library ** library);
