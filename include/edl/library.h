@@ -15,9 +15,10 @@
  *
  *     void (*function)();
  *     edl_status status = EDL_FAILURE;
- *     edl_library library = edl_library_create();
+ *     edl_library library = NULL;
  *
- *     if (library != NULL) {
+ *     status = edl_library_create(&library);
+ *     if (edl_status_is_successful(status)) {
  *         status = edl_library_open(library, "/path/to/library.so");
  *
  *         if (edl_status_is_successful(status)) {
