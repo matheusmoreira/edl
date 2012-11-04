@@ -12,7 +12,7 @@
 /**
  * @brief Represents a data object which is part of an external API.
  *
- * `edl_api_object` associates the name associated with external data with a
+ * `edl_api_object` associates the name that identifies external data with a
  * local object pointer that will be made to point to it.
  */
 typedef struct edl_api_object {

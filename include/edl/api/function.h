@@ -12,8 +12,8 @@
 /**
  * @brief Represents a function that is part of an external API.
  *
- * `edl_api_function` associates the name associated with an exported function
- * with the local function pointer that will be made to point to it.
+ * `edl_api_function` associates the name of an exported function with the local
+ * function pointer that will be made to point to it.
  */
 typedef struct edl_api_function {
     const char * name; /**< Symbol which identifies the external function. */
