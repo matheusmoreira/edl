@@ -108,6 +108,14 @@ extern edl_status edl_library_close(edl_library * library);
  */
 extern edl_status edl_library_current(edl_library * library);
 
+/**
+ * Returns a pointer to data exported by the `library`.
+ *
+ * @param [in] library The library that contains the data. May be `NULL`.
+ * @param [in] name The symbol that identifies the exported data.
+ * @return Pointer to the data, or NULL if not given a library or if any error
+ *         occurs.
+ */
 extern edl_object edl_library_get_object(edl_library * library,
                                           const char * name);
 
