@@ -50,8 +50,8 @@ typedef struct edl_library edl_library;
 extern edl_status edl_library_create(edl_library ** library);
 
 /**
- * Frees the memory allocated for the library. If the library is still open, it
- * will be closed.
+ * Frees the memory allocated for the `library`. If the `library` is still open,
+ * it will be closed.
  *
  * @param [in] library The library to destroy. May be `NULL`.
  * @return
@@ -86,7 +86,7 @@ extern edl_status edl_library_open(edl_library * library,
                                     const char * name);
 
 /**
- * Closes the handle to the library's shared object.
+ * Closes the handle to the `library`'s shared object.
  *
  * @param [in] library The library to be closed. May be `NULL`.
  * @return
@@ -161,7 +161,7 @@ extern edl_status edl_library_get_function(edl_library * library,
                                             edl_function * function);
 
 /**
- * Determines whether the library is open.
+ * Determines whether the given `library` is open.
  *
  * @param [in] library The library to test.
  * @return Non-zero if the library is open, `0` otherwise.
@@ -169,7 +169,7 @@ extern edl_status edl_library_get_function(edl_library * library,
 extern int edl_library_is_open(edl_library * library);
 
 /**
- * Determines whether the library is closed.
+ * Determines whether the given `library` is closed.
  *
  * @param [in] library The library to test.
  * @return Non-zero if the library is closed, `0` otherwise.
