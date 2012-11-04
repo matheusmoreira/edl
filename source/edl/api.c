@@ -4,9 +4,7 @@
 
 #include <edl/api/function.h>
 #include <edl/api/object.h>
-#include <edl/function.h>
 #include <edl/library.h>
-#include <edl/object.h>
 #include <edl/status.h>
 
 /* edl_api interface implementation */
