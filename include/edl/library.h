@@ -146,6 +146,17 @@ extern int edl_library_is_open(edl_library * library);
  */
 extern int edl_library_is_closed(edl_library * library);
 
+/**
+ * Returns the last error message associated with the given `library`.
+ *
+ * @note The strings returned by this function are not dynamically allocated and
+ *       must not be freed.
+ *
+ * @param [in] library The library.
+ * @return Null-terminated strings containing a human-readable description of
+ *         the last error that occurred with the library, or NULL if not given
+ *         a library or if no error occurred.
+ */
 extern const char * edl_library_last_error(edl_library * library);
 
 #endif /* EDL_LIBRARY_HEADER */
