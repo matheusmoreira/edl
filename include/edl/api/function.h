@@ -1,3 +1,9 @@
+/**
+ * @file
+ *
+ * Defines the `edl_api_function` structure.
+ */
+
 #ifndef EDL_API_FUNCTION_HEADER
 #define EDL_API_FUNCTION_HEADER
 
