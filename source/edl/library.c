@@ -20,16 +20,20 @@ static void edl_library_set_error(edl_library * library);
 
 /* edl_library interface implementation */
 
-edl_library * edl_library_create() {
-    edl_library * library = NULL;
+edl_status edl_library_create(edl_library ** library); {
+    edl_library * new_library = NULL;
 
-    library = malloc(sizeof *library);
-    if (library == NULL) { return NULL; }
+    if (library == NULL) { return EDL_NOTHING_TO_DO; }
 
-    library->name = library->error_message = NULL;
-    library->native_handle = NULL;
+    new_library = malloc(sizeof *new_library);
+    if (new_library == NULL) { return EDL_MEMORY_ALLOCATION_ERROR; }
 
-    return library;
+    new_library->name = new_library->error_message = NULL;
+    new_library->native_handle = NULL;
+
+    *library = new_library;
+
+    return EDL_LIBRARY_CREATED_SUCCESSFULLY;
 }
 
 edl_status edl_library_destroy(edl_library * library) {

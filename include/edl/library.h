@@ -38,7 +38,7 @@ typedef struct edl_library edl_library;
  * @return Pointer to the newly-created library.
  * @see edl_library_destroy
  */
-extern edl_library * edl_library_create();
+extern edl_status edl_library_create(edl_library ** library);
 
 /**
  * Frees the memory allocated for the library. If the library is still open, it
