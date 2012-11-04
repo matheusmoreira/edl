@@ -42,6 +42,8 @@ const char * edl_status_name(edl_status status) {
 
         NAME(EDL_FAILURE);
 
+        NAME(EDL_MEMORY_ALLOCATION_ERROR);
+
         NAME(EDL_API_LIBRARY_NOT_GIVEN_ERROR);
         NAME(EDL_API_LIBRARY_CLOSED_ERROR);
         NAME(EDL_API_OBJECT_INITIALIZATION_ERROR);
