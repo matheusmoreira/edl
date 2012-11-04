@@ -14,6 +14,7 @@ int edl_status_is_successful(edl_status status) {
         case EDL_LIBRARY_DESTROYED_SUCCESSFULLY:
         case EDL_LIBRARY_ALREADY_CLOSED:
         case EDL_LIBRARY_CLOSED_SUCCESSFULLY:
+        case EDL_LIBRARY_OBJECT_FOUND:
 
             return 1;
 
@@ -41,6 +42,7 @@ const char * edl_status_name(edl_status status) {
         NAME(EDL_LIBRARY_DESTROYED_SUCCESSFULLY);
         NAME(EDL_LIBRARY_ALREADY_CLOSED);
         NAME(EDL_LIBRARY_CLOSED_SUCCESSFULLY);
+        NAME(EDL_LIBRARY_OBJECT_FOUND);
 
         NAME(EDL_FAILURE);
 
