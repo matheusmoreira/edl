@@ -2,8 +2,8 @@
 
 #include <edl/api.h>
 
-#include <edl/api/object.h>
 #include <edl/api/function.h>
+#include <edl/api/object.h>
 #include <edl/function.h>
 #include <edl/library.h>
 #include <edl/object.h>
