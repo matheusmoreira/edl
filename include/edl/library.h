@@ -143,11 +143,21 @@ extern edl_status edl_library_get_object(edl_library * library,
  *
  * @param [in] library The library that contains the function. May be `NULL`.
  * @param [in] name The symbol that identifies the exported function.
- * @return Pointer to the function, or NULL if not given a library or if any
- *         error occurs.
+ * @param [out] object Pointer to the function pointer which will be initialized
+ *                     with the address of the external function. May be `NULL`.
+ * @return
+ *   - EDL_NOTHING_TO_DO
+ *     - if not given a library or a function pointer to set.
+ *   - EDL_LIBRARY_CLOSED_ERROR
+ *     - if given a closed library.
+ *   - EDL_LIBRARY_FUNCTION_NOT_FOUND_ERROR
+ *     - if the requested function could not be found in the given library.
+ *   - EDL_LIBRARY_FUNCTION_FOUND
+ *     - if the requested function was found and the given function pointer set.
  */
-extern edl_function edl_library_get_function(edl_library * library,
-                                              const char * name);
+extern edl_status edl_library_get_function(edl_library * library,
+                                            const char * name,
+                                            edl_function * function);
 
 /**
  * Determines whether the library is open.
