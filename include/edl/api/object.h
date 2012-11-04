@@ -16,7 +16,7 @@
  * local object pointer that will be made to point to it.
  */
 typedef struct edl_api_object {
-    const char * name;
+    const char * name; /**< Symbol which identifies the object. */
     edl_object * object;
 } edl_api_object;
 
