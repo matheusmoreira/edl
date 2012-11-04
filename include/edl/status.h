@@ -52,6 +52,9 @@ extern int edl_status_is_failure(edl_status status);
 /**
  * Returns the string representation of the given status.
  *
+ * @note The strings returned by this function are not dynamically allocated and
+ *       must not be freed.
+ *
  * @param [in] status The status whose string representation is desired.
  * @return The string representation of the status.
  */
