@@ -17,7 +17,7 @@
  */
 typedef struct edl_api_object {
     const char * name; /**< Symbol which identifies the object. */
-    edl_object * object;
+    edl_object * object; /**< `edl_object` which will point to the external data. */
 } edl_api_object;
 
 #endif /* EDL_API_OBJECT_HEADER */
