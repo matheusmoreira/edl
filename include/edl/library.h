@@ -119,6 +119,14 @@ extern edl_status edl_library_current(edl_library * library);
 extern edl_object edl_library_get_object(edl_library * library,
                                           const char * name);
 
+/**
+ * Returns a pointer to a function exported by the `library`.
+ *
+ * @param [in] library The library that contains the function. May be `NULL`.
+ * @param [in] name The symbol that identifies the exported function.
+ * @return Pointer to the function, or NULL if not given a library or if any
+ *         error occurs.
+ */
 extern edl_function edl_library_get_function(edl_library * library,
                                               const char * name);
 
