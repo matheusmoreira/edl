@@ -1,3 +1,9 @@
+/**
+ * @file
+ *
+ * Defines the `edl_api_object` structure.
+ */
+
 #ifndef EDL_API_OBJECT_HEADER
 #define EDL_API_OBJECT_HEADER
 
