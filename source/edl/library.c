@@ -89,14 +89,21 @@ edl_status edl_library_current(edl_library * library) {
     return edl_library_open(library, NULL);
 }
 
-edl_object edl_library_get_object(edl_library * library,
-                                          const char * name) {
-    edl_object object = NULL;
+edl_status edl_library_get_object(edl_library * library, const char * name, edl_object * object) {
+    edl_object address = NULL;
 
-    object = edl_native_library_get_object(library->native_handle, name);
-    if (object == NULL) { edl_library_set_error(library); }
+    if (library == NULL || object == NULL) { return EDL_NOTHING_TO_DO; }
+    if (edl_library_is_closed(library)) { return EDL_LIBRARY_CLOSED_ERROR; }
 
-    return object;
+    address = edl_native_library_get_object(library->native_handle, name);
+    if (address == NULL) {
+        edl_library_set_error(library);
+        return EDL_LIBRARY_OBJECT_NOT_FOUND_ERROR;
+    }
+
+    *object = address;
+
+    return EDL_LIBRARY_OBJECT_FOUND;
 }
 
 edl_function edl_library_get_function(edl_library * library,
