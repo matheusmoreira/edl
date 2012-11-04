@@ -22,9 +22,9 @@
  *         status = edl_library_open(library, "/path/to/library.so");
  *
  *         if (edl_status_is_successful(status)) {
- *             function = edl_library_get_function(library, "function");
+ *             status = edl_library_get_function(library, "function", &function);
  *
- *             if (function != NULL) { function(); }
+ *             if (edl_status_is_successful(status)) { function(); }
  *         }
  *     }
  *
