@@ -45,14 +45,15 @@ int main(int argc, char ** argv) {
         exit(2);
     }
 
-    printf("Acquiring \"pow\" function...");
+    printf("Acquiring \"pow\" function... ");
     status = edl_library_get_function(math_library, "pow", (edl_function *) &pow);
+    printf("%s" "\n", edl_status_name(status));
     if (pow == NULL) {
         printf("\n" "Could not find function - %s" "\n",
                 edl_library_last_error(math_library));
         destroy(math_library);
         exit(3);
-    } else { printf(" acquired\n"); }
+    }
 
     printf("\n\t" "%f ^ %f = %f" "\n\n",
            base, exponent, pow(base, exponent));
