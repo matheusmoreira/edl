@@ -26,13 +26,14 @@ int main(int argc, char ** argv) {
     printf("Base: %f" "\n" "Exponent: %f" "\n" "Math library: %s" "\n",
            base, exponent, path_to_library);
 
-    printf("Creating math library...");
-    math_library = edl_library_create();
-    if (math_library == NULL) {
-        printf("\n" "Could not allocate memory for math library" "\n");
+    printf("Creating math library... ");
+    status = edl_library_create(&math_library);
+    printf("%s" "\n", edl_status_name(status));
+    if (edl_status_is_failure(status)) {
+        printf("\n" "Could not create math library" "\n");
         destroy(math_library);
         exit(1);
-    } else { printf(" created" "\n"); }
+    }
 
     printf("Opening \"%s\"... ", path_to_library);
     status = edl_library_open(math_library, path_to_library);
