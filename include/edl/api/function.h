@@ -17,7 +17,7 @@
  */
 typedef struct edl_api_function {
     const char * name; /**< Symbol which identifies the external function. */
-    edl_function * function;
+    edl_function * function; /**< `edl_function` which will point to the external function. */
 } edl_api_function;
 
 #endif /* EDL_API_FUNCTION_HEADER */
