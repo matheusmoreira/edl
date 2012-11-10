@@ -17,8 +17,8 @@ extern void * edl_platform_specifics_library_open(const char * path);
 
 extern edl_status edl_platform_specifics_library_close(void * native_handle);
 
-extern edl_object edl_native_library_get_object(void * native_handle,
-                                                 const char * name);
+extern edl_object edl_platform_specifics_get_object(void * native_handle,
+                                                     const char * name);
 
 extern edl_function edl_native_library_get_function(void * native_handle,
                                                      const char * name);
