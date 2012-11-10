@@ -51,20 +51,26 @@ typedef struct edl_library edl_library;
 extern edl_status edl_library_create(edl_library ** library_reference);
 
 /**
- * Frees the memory allocated for the `library`. If the `library` is still open,
- * it will be closed.
+ * Frees the memory allocated for the library pointed to by the given reference.
+ * If the library is still open, it will be closed.
  *
- * @param [in] library The library to destroy. May be `NULL`.
+ * @note After the library was successfully destroyed, the value pointed to by
+ *       `library_reference` will be set to `NULL`.
+ *
+ * @param [in] library_reference Reference to the library pointer that will be
+ *                               freed.
  * @return
+ *   - EDL_NULL_POINTER_ERROR
+ *     - if the given library reference is NULL.
  *   - EDL_NOTHING_TO_DO
- *     - if there is no library to destroy.
+ *     - if the library pointed to by the given library reference is NULL.
  *   - The status returned by `edl_library_close()`
  *     - if the library was still open and could not be closed successfully.
  *   - EDL_LIBRARY_DESTROYED_SUCCESSFULLY
  *     - if the library was successfully destroyed.
  * @see edl_library_close
  */
-extern edl_status edl_library_destroy(edl_library * library);
+extern edl_status edl_library_destroy(edl_library ** library_reference);
 
 /**
  * Searches for the dynamic library given by `name`, obtains a handle to the
