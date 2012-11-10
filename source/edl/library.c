@@ -117,7 +117,7 @@ edl_status edl_library_get_object(edl_library * library, const char * name, edl_
 edl_status edl_library_get_function(edl_library * library, const char * name, edl_function * function) {
     edl_function address = NULL;
 
-    if (library == NULL || function == NULL) { return EDL_NOTHING_TO_DO; }
+    if (library == NULL || name == NULL || function == NULL) { return EDL_NULL_POINTER_ERROR; }
     if (edl_library_is_closed(library)) { return EDL_LIBRARY_CLOSED_ERROR; }
 
     address = edl_native_library_get_function(library->native_handle, name);
