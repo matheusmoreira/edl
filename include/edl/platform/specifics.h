@@ -15,6 +15,16 @@
  */
 extern void * edl_platform_specifics_library_open(const char * path);
 
+/**
+ * Destroys the platform-specific library handle.
+ *
+ * @param [in] native_handle The library handle to be closed.
+ * @return
+ *   - EDL_LIBRARY_CLOSED_SUCCESSFULLY
+ *     - if the given library handle was closed successfully.
+ *   - Any other status
+ *     - if the given library handle was not closed successfully.
+ */
 extern edl_status edl_platform_specifics_library_close(void * native_handle);
 
 extern edl_object edl_platform_specifics_get_object(void * native_handle,
