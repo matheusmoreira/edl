@@ -48,6 +48,12 @@ extern edl_object edl_platform_specifics_get_object(void * native_handle,
 extern edl_function edl_platform_specifics_library_get_function(void * native_handle,
                                                                  const char * name);
 
+/**
+ * Obtains a description of the last error that occurred.
+ *
+ * @return A `NULL`-terminated string describing the last error that occurred,
+ *         or `NULL` if no error has occurred.
+ */
 extern const char * edl_platform_specifics_library_last_error();
 
 #endif /* EDL_PLATFORM_SPECIFICS_HEADER */
