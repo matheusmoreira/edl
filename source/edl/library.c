@@ -23,7 +23,7 @@ static void edl_library_set_error(edl_library * library);
 edl_status edl_library_create(edl_library ** library) {
     edl_library * new_library = NULL;
 
-    if (library == NULL) { return EDL_NOTHING_TO_DO; }
+    if (library == NULL) { return EDL_NULL_POINTER_ERROR; }
 
     new_library = malloc(sizeof *new_library);
     if (new_library == NULL) { return EDL_MEMORY_ALLOCATION_ERROR; }
