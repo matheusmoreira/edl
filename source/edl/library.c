@@ -100,7 +100,7 @@ edl_status edl_library_current(edl_library * library) {
 edl_status edl_library_get_object(edl_library * library, const char * name, edl_object * object) {
     edl_object address = NULL;
 
-    if (library == NULL || object == NULL) { return EDL_NOTHING_TO_DO; }
+    if (library == NULL || name == NULL || object == NULL) { return EDL_NULL_POINTER_ERROR; }
     if (edl_library_is_closed(library)) { return EDL_LIBRARY_CLOSED_ERROR; }
 
     address = edl_native_library_get_object(library->native_handle, name);

@@ -133,13 +133,13 @@ extern edl_status edl_library_current(edl_library * library);
 /**
  * Returns a pointer to data exported by the `library`.
  *
- * @param [in] library The library that contains the data. May be `NULL`.
+ * @param [in] library The library that contains the data.
  * @param [in] name The symbol that identifies the exported data.
  * @param [out] object Pointer to the object pointer which will be initialized
- *                     with the address of the external data. May be `NULL`.
+ *                     with the address of the external data.
  * @return
- *   - EDL_NOTHING_TO_DO
- *     - if not given a library or an object pointer to set.
+ *   - EDL_NULL_POINTER_ERROR
+ *     - if either the library, name or object pointer is `NULL`.
  *   - EDL_LIBRARY_CLOSED_ERROR
  *     - if given a closed library.
  *   - EDL_LIBRARY_OBJECT_NOT_FOUND_ERROR
