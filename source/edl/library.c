@@ -36,13 +36,19 @@ edl_status edl_library_create(edl_library ** library_reference) {
     return EDL_LIBRARY_CREATED_SUCCESSFULLY;
 }
 
-edl_status edl_library_destroy(edl_library * library) {
-    if (library == NULL) { return EDL_NOTHING_TO_DO; } else {
-        edl_status status = edl_library_close(library);
-        if (edl_status_is_failure(status)) { return status; }
-    }
+edl_status edl_library_destroy(edl_library ** library_reference) {
+    edl_library * library = NULL;
+
+    if (library == NULL) { return EDL_NULL_POINTER_ERROR; }
+
+    library = *library_reference;
+    if (library == NULL) { return EDL_NOTHING_TO_DO; }
+
+    edl_status status = edl_library_close(library);
+    if (edl_status_is_failure(status)) { return status; }
 
     free(library);
+    *library_reference = NULL;
 
     return EDL_LIBRARY_DESTROYED_SUCCESSFULLY;
 }
