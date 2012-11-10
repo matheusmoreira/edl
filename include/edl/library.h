@@ -98,10 +98,10 @@ extern edl_status edl_library_open(edl_library * library,
 /**
  * Closes the handle to the `library`'s shared object.
  *
- * @param [in] library The library to be closed. May be `NULL`.
+ * @param [in] library The library to be closed.
  * @return
- *   - EDL_NOTHING_TO_DO
- *     - if there is no library to close.
+ *   - EDL_NULL_POINTER_ERROR
+ *     - if the given library is `NULL`.
  *   - EDL_LIBRARY_ALREADY_CLOSED
  *     - if the library is already closed.
  *   -  The status returned by `edl_native_library_close()`
