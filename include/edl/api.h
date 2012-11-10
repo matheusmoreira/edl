@@ -67,12 +67,10 @@ typedef struct edl_api {
  * @param [in] library The library that contains the objects and functions. Must
  *                     be initialized and open.
  * @return
- *   - `EDL_NOTHING_TO_DO`
- *     - if there is no API to initialize.
- *   - `EDL_API_LIBRARY_NOT_GIVEN_ERROR`
- *     - if given an API to initialize but not a library to bind against.
+ *   - `EDL_NULL_POINTER_ERROR`
+ *     - if either the given API or the given library is NULL.
  *   - `EDL_API_LIBRARY_CLOSED_ERROR`
- *     - if given an API to initialize and a library that is not open.
+ *     - if the given library is not open.
  *   - `EDL_API_OBJECT_INITIALIZATION_ERROR`
  *     - if an object was not successfully initialized.
  *   - `EDL_API_FUNCTION_INITIALIZATION_ERROR`
