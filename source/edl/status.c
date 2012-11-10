@@ -6,6 +6,8 @@ int edl_status_is_successful(edl_status status) {
     switch (status) {
         case EDL_SUCCESS:
 
+        case EDL_NOTHING_TO_DO:
+
         case EDL_API_INITIALIZED_SUCCESSFULLY:
 
         case EDL_LIBRARY_CREATED_SUCCESSFULLY:
@@ -32,6 +34,8 @@ int edl_status_is_failure(edl_status status) {
 const char * edl_status_name(edl_status status) {
     switch (status) {
         NAME(EDL_SUCCESS);
+
+        NAME(EDL_NOTHING_TO_DO);
 
         NAME(EDL_API_INITIALIZED_SUCCESSFULLY);
 
