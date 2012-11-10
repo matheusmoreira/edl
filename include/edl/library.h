@@ -79,12 +79,12 @@ extern edl_status edl_library_destroy(edl_library ** library_reference);
  * If the given `name` is `NULL`, the current process will be opened as a
  * library.
  *
- * @param [in] library The library to be opened. May be `NULL`.
+ * @param [in] library The library to be opened.
  * @param [in] name The relative or absolute path to the library's shared
  *                  object. May be `NULL`.
  * @return
- *   - EDL_NOTHING_TO_DO
- *     - if there is no library to open.
+ *   - EDL_NULL_POINTER_ERROR
+ *     - if the given library is `NULL`.
  *   - EDL_FAILURE
  *     - if a handle to the library's shared object could not be obtained.
  *   - EDL_SUCCESS
