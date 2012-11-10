@@ -68,7 +68,7 @@ edl_status edl_library_open(edl_library * library, const char * name) {
     library->name = name;
     library->native_handle = handle;
 
-    return EDL_SUCCESS;
+    return EDL_LIBRARY_OPENED_SUCCESSFULLY;
 }
 
 edl_status edl_library_close(edl_library * library) {
