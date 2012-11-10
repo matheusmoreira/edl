@@ -184,7 +184,7 @@ extern int edl_library_is_open(edl_library * library);
  * Determines whether the given `library` is closed.
  *
  * @param [in] library The library to test.
- * @return Non-zero if the library is closed, `0` otherwise.
+ * @return Non-zero if the library is closed or `NULL`, `0` otherwise.
  */
 extern int edl_library_is_closed(edl_library * library);
 
