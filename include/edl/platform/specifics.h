@@ -13,7 +13,8 @@
  * @return A pointer to the library handle, or `NULL` if it could not be
  *         obtained.
  */
-extern void * edl_native_library_open(const char * path);
+extern void * edl_platform_specifics_library_open(const char * path);
+
 extern edl_status edl_native_library_close(void * native_handle);
 
 extern edl_object edl_native_library_get_object(void * native_handle,
