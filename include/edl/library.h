@@ -196,8 +196,8 @@ extern int edl_library_is_closed(edl_library * library);
  *
  * @param [in] library The library.
  * @return Null-terminated strings containing a human-readable description of
- *         the last error that occurred with the library, or NULL if not given
- *         a library or if no error occurred.
+ *         the last error that occurred with the library, or NULL if the given
+ *         library is `NULL` or if no error occurred.
  */
 extern const char * edl_library_last_error(edl_library * library);
 
