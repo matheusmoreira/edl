@@ -176,7 +176,7 @@ extern edl_status edl_library_get_function(edl_library * library,
  * Determines whether the given `library` is open.
  *
  * @param [in] library The library to test.
- * @return Non-zero if the library is open, `0` otherwise.
+ * @return `0` if the library is closed or `NULL`, non-zero otherwise.
  */
 extern int edl_library_is_open(edl_library * library);
 
