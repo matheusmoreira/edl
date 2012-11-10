@@ -56,7 +56,7 @@ edl_status edl_library_destroy(edl_library ** library_reference) {
 edl_status edl_library_open(edl_library * library, const char * name) {
     void * handle = NULL;
 
-    if (library == NULL) { return EDL_NOTHING_TO_DO; }
+    if (library == NULL) { return EDL_NULL_POINTER_ERROR; }
     /* name may be NULL */
 
     handle = edl_library_find_and_open(name);
