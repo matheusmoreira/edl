@@ -41,7 +41,7 @@ typedef struct edl_library edl_library;
  *                                newly-created library.
  * @return
  *   - EDL_NULL_POINTER_ERROR
- *     - if the given library reference is NULL.
+ *     - if the given library reference is `NULL`.
  *   - EDL_MEMORY_ALLOCATION_ERROR
  *     - if memory for the library could not be allocated.
  *   - EDL_LIBRARY_CREATED_SUCCESSFULLY
@@ -61,9 +61,9 @@ extern edl_status edl_library_create(edl_library ** library_reference);
  *                               freed.
  * @return
  *   - EDL_NULL_POINTER_ERROR
- *     - if the given library reference is NULL.
+ *     - if the given library reference is `NULL`.
  *   - EDL_NOTHING_TO_DO
- *     - if the library pointed to by the given library reference is NULL.
+ *     - if the library pointed to by the given library reference is `NULL`.
  *   - The status returned by `edl_library_close()`
  *     - if the library was still open and could not be closed successfully.
  *   - EDL_LIBRARY_DESTROYED_SUCCESSFULLY
