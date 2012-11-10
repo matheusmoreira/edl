@@ -5,6 +5,14 @@
 #include <edl/object.h>
 #include <edl/status.h>
 
+/**
+ * Obtains a platform-specific library handle using the given absolute or
+ * relative path.
+ *
+ * @param [in] path The absolute or relative path to the library.
+ * @return A pointer to the library handle, or `NULL` if it could not be
+ *         obtained.
+ */
 extern void * edl_native_library_open(const char * path);
 extern edl_status edl_native_library_close(void * native_handle);
 
