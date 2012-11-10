@@ -39,7 +39,7 @@ edl_status edl_library_create(edl_library ** library_reference) {
 edl_status edl_library_destroy(edl_library ** library_reference) {
     edl_library * library = NULL;
 
-    if (library == NULL) { return EDL_NULL_POINTER_ERROR; }
+    if (library_reference == NULL) { return EDL_NULL_POINTER_ERROR; }
 
     library = *library_reference;
     if (library == NULL) { return EDL_NOTHING_TO_DO; }
