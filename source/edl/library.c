@@ -79,7 +79,7 @@ edl_status edl_library_close(edl_library * library) {
     if (library == NULL) { return EDL_NULL_POINTER_ERROR; }
 
     if (edl_library_is_open(library)) {
-        status = edl_native_library_close(library->native_handle);
+        status = edl_platform_specifics_library_close(library->native_handle);
 
         if (status == EDL_LIBRARY_CLOSED_SUCCESSFULLY) {
             library->native_handle = NULL;
@@ -103,7 +103,7 @@ edl_status edl_library_get_object(edl_library * library, const char * name, edl_
     if (library == NULL || name == NULL || object == NULL) { return EDL_NULL_POINTER_ERROR; }
     if (edl_library_is_closed(library)) { return EDL_LIBRARY_CLOSED_ERROR; }
 
-    address = edl_native_library_get_object(library->native_handle, name);
+    address = edl_platform_specifics_library_get_object(library->native_handle, name);
     if (address == NULL) {
         edl_library_set_error(library);
         return EDL_LIBRARY_OBJECT_NOT_FOUND_ERROR;
@@ -120,7 +120,7 @@ edl_status edl_library_get_function(edl_library * library, const char * name, ed
     if (library == NULL || name == NULL || function == NULL) { return EDL_NULL_POINTER_ERROR; }
     if (edl_library_is_closed(library)) { return EDL_LIBRARY_CLOSED_ERROR; }
 
-    address = edl_native_library_get_function(library->native_handle, name);
+    address = edl_platform_specifics_library_get_function(library->native_handle, name);
     if (address == NULL) {
         edl_library_set_error(library);
         return EDL_LIBRARY_FUNCTION_NOT_FOUND_ERROR;
@@ -149,9 +149,9 @@ const char * edl_library_last_error(edl_library * library) {
 
 static void * edl_library_find_and_open(const char * name) {
     /* TODO: Try all possible extensions */
-    return edl_native_library_open(name);
+    return edl_platform_specifics_library_open(name);
 }
 
 static void edl_library_set_error(edl_library * library) {
-    library->error_message = edl_native_library_last_error();
+    library->error_message = edl_platform_specifics_library_last_error();
 }
