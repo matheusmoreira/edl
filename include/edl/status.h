@@ -28,6 +28,7 @@ typedef enum edl_status {
 
     EDL_FAILURE,
 
+    EDL_NULL_POINTER_ERROR,
     EDL_MEMORY_ALLOCATION_ERROR,
 
     EDL_API_LIBRARY_CLOSED_ERROR,
