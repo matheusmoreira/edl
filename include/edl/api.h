@@ -60,12 +60,8 @@ typedef struct edl_api {
  * Binds the objects and functions referenced by `api` to their associated
  * objects and functions in the `library`.
  *
- * If the given `api` is `NULL`, then this function was not given an API to
- * initialize and thus does nothing.
- *
- * @param [in] api The API to initialize. May be NULL.
- * @param [in] library The library that contains the objects and functions. Must
- *                     be initialized and open.
+ * @param [in] api The API to initialize.
+ * @param [in] library The open library that contains the objects and functions.
  * @return
  *   - `EDL_NULL_POINTER_ERROR`
  *     - if either the given API or the given library is NULL.
