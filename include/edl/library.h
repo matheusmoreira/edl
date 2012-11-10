@@ -117,13 +117,15 @@ extern edl_status edl_library_close(edl_library * library);
  *
  * This is the same as calling `edl_library_open(library, NULL)`.
  *
- * @param [in] library The library to be opened. May be `NULL`.
+ * @param [in] library The library to be opened.
  * @return
- *   - EDL_NOTHING_TO_DO
- *     - if there is no library to open.
- *   - EDL_FAILURE
+ *   - EDL_NULL_POINTER_ERROR
+ *     - if the given library is `NULL`.
+ *   - EDL_LIBRARY_ALREADY_OPENED_ERROR
+ *     - if the given library has already been opened.
+ *   - EDL_LIBRARY_SHARED_OBJECT_NOT_FOUND_ERROR
  *     - if the current process could not be opened as a library.
- *   - EDL_SUCCESS
+ *   - EDL_LIBRARY_OPENED_SUCCESSFULLY
  *     - if the current process was successfully opened as a library.
  */
 extern edl_status edl_library_current(edl_library * library);
