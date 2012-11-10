@@ -62,7 +62,7 @@ edl_status edl_library_open(edl_library * library, const char * name) {
     handle = edl_library_find_and_open(name);
     if (handle == NULL) {
         edl_library_set_error(library);
-        return EDL_FAILURE;
+        return EDL_LIBRARY_SHARED_OBJECT_NOT_FOUND_ERROR;
     }
 
     library->name = name;
