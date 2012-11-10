@@ -59,6 +59,8 @@ edl_status edl_library_open(edl_library * library, const char * name) {
     if (library == NULL) { return EDL_NULL_POINTER_ERROR; }
     /* name may be NULL */
 
+    if (edl_library_is_open(library)) { return EDL_LIBRARY_ALREADY_OPENED_ERROR; }
+
     handle = edl_library_find_and_open(name);
     if (handle == NULL) {
         edl_library_set_error(library);
