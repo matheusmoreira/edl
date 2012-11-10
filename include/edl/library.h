@@ -85,6 +85,8 @@ extern edl_status edl_library_destroy(edl_library ** library_reference);
  * @return
  *   - EDL_NULL_POINTER_ERROR
  *     - if the given library is `NULL`.
+ *   - EDL_LIBRARY_ALREADY_OPENED_ERROR
+ *     - if the given library has already been opened.
  *   - EDL_LIBRARY_SHARED_OBJECT_NOT_FOUND_ERROR
  *     - if a handle to the library's shared object could not be obtained.
  *   - EDL_LIBRARY_OPENED_SUCCESSFULLY
