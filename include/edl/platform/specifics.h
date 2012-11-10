@@ -37,6 +37,14 @@ extern edl_status edl_platform_specifics_library_close(void * native_handle);
 extern edl_object edl_platform_specifics_get_object(void * native_handle,
                                                      const char * name);
 
+/**
+ * Obtains the address of the function referred to by the given `name`.
+ *
+ * @param [in] native_handle The handle to the library that contains the
+ *                           function.
+ * @param [in] name The symbol which identifies the function.
+ * @return A pointer to the function, or `NULL` if it could not be found.
+ */
 extern edl_function edl_platform_specifics_library_get_function(void * native_handle,
                                                                  const char * name);
 
