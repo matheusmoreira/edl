@@ -6,8 +6,10 @@
 
 #include <dlfcn.h>
 
+static const int dlopen_flags = RTLD_LAZY;
+
 void * edl_platform_specifics_library_open(const char * path) {
-    return dlopen(path, RTLD_LAZY);
+    return dlopen(path, dlopen_flags);
 }
 
 edl_status edl_platform_specifics_library_close(void * native_handle) {
