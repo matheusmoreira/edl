@@ -32,6 +32,6 @@ edl_function edl_platform_specifics_library_get_function(void * native_handle,
     return (edl_function) edl_native_library_get_object(native_handle, name);
 }
 
-const char * edl_platform_specifics_library_last_error() {
+const char * edl_platform_specifics_library_last_error(void) {
     return dlerror();
 }

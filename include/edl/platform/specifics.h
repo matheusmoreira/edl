@@ -54,6 +54,6 @@ extern edl_function edl_platform_specifics_library_get_function(void * native_ha
  * @return A `NULL`-terminated string describing the last error that occurred,
  *         or `NULL` if no error has occurred.
  */
-extern const char * edl_platform_specifics_library_last_error();
+extern const char * edl_platform_specifics_library_last_error(void);
 
 #endif /* EDL_PLATFORM_SPECIFICS_HEADER */
