@@ -31,7 +31,7 @@ edl_function edl_platform_specifics_library_get_function(void * native_handle,
      * http://stackoverflow.com/q/12358843/512904
      * http://en.wikipedia.org/wiki/Dynamic_loading#Solving_the_function_pointer_problem_on_POSIX_systems
      */
-    return (edl_function) edl_native_library_get_object(native_handle, name);
+    return (edl_function) edl_platform_specifics_library_get_object(native_handle, name);
 }
 
 const char * edl_platform_specifics_library_last_error(void) {
