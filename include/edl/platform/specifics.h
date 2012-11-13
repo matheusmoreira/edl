@@ -34,8 +34,8 @@ extern edl_status edl_platform_specifics_library_close(void * native_handle);
  * @param [in] name The symbol which identifies the object.
  * @return A pointer to the object, or `NULL` if it could not be found.
  */
-extern edl_object edl_platform_specifics_get_object(void * native_handle,
-                                                     const char * name);
+extern edl_object edl_platform_specifics_library_get_object(void * native_handle,
+                                                             const char * name);
 
 /**
  * Obtains the address of the function referred to by the given `name`.
